@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Information -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Page Title -->
+    <title>My Portfolio</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Font Preloading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css?family=Monofonto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <h1>Tyler Steele</h1>
+    <h2>Software Engineer</h2>
+
+    <!-- Sections -->
+    <section id="introduction">
+      <h2>Hi, my name is...</h2>
+      <p>Type your name here.</p>
+      <input type="text" id="name-input" placeholder="Type your name here..." />
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Brief introduction about yourself.</p>
+    </section>
+
+    <section id="software">
+      <h2>Software</h2>
+      <p>Here's some things I've worked on.</p>
+    </section>
+
+    <section id="presentations">
+      <h2>Presentations</h2>
+      <p>Here's some presentations I've given.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Reach out with a message below.</p>
+      <input
+        type="text"
+        id="contact-input"
+        placeholder="Type your message here..."
+      />
+    </section>
+
+    <!-- Navigation -->
+    <header>
+      <nav class="dialog">
+        <ul class="dialog-options">
+          <li><a href="#introduction">Hi, my name is... (type name)</a></li>
+          <li><a href="#about">Who are you?</a></li>
+          <li>
+            <a href="#software">What are some things you've worked on?</a>
+          </li>
+          <li><a href="#presentations">Have you heard any rumors?</a></li>
+          <li><a href="#contact">Other (type response)</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
