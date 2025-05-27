@@ -139,6 +139,16 @@ section:target {
   display: block;
 }
 
+#talking-head {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+#talking-gif {
+  max-height: 200px;
+  transition: opacity 0.3s ease;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

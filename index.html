@@ -18,6 +18,13 @@
       href="https://fonts.googleapis.com/css?family=Monofonto&display=swap"
       rel="stylesheet"
     />
+    <!-- Preload Images -->
+    <link rel="preload" as="image" href="assets/talking/introduction.gif" />
+    <link rel="preload" as="image" href="assets/talking/software.gif" />
+    <link rel="preload" as="image" href="assets/talking/presentations.gif" />
+    <link rel="preload" as="image" href="assets/talking/fun.gif" />
+    <link rel="preload" as="image" href="assets/talking/contact.gif" />
+    <link rel="preload" as="image" href="assets/talking/idle.png" />
   </head>
 
   <body>
@@ -58,11 +65,15 @@
     </section>
 
     <!-- Navigation -->
+    <div id="talking-head">
+      <img id="talking-gif" src="assets/talking/idle.png" alt="Talking Head" />
+    </div>
+
     <div class="dialog-container">
       <nav class="dialog">
         <ul class="dialog-options">
           <li><a href="#introduction">Hi, my name is... (type name)</a></li>
-          <li><a href="#about">Who are you?</a></li>
+          <li><a href="#fun">Who are you?</a></li>
           <li>
             <a href="#software">What are some things you've worked on?</a>
           </li>
