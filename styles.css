@@ -5,6 +5,7 @@
   --primary-color: #267402;
   --primary-color-bright: #3a9c04;
   --primary-color-dark: #204a01;
+  --red: #bd2020;
   --background-color: #d5d5d5ce;
   --gray: #bdbdbd;
   --white: #ffffff;
@@ -139,16 +140,6 @@ section:target {
   display: block;
 }
 
-#talking-head {
-  text-align: center;
-  margin: 1rem 0;
-}
-
-#talking-gif {
-  max-height: 200px;
-  transition: opacity 0.3s ease;
-}
-
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -166,4 +157,177 @@ section:target {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color-bright); /* Slightly brighter shade */
+}
+
+#talking-head {
+  text-align: center;
+  margin: 2rem auto;
+  position: relative;
+  width: fit-content;
+
+  background: linear-gradient(145deg, #696157, #2c1e05);
+  border: 2px solid #312f2ea8;
+  border-radius: 40px;
+  padding: 2px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3),
+    inset 0 0 40px rgba(255, 255, 255, 0.1), 0 0 30px rgba(0, 0, 0, 0.8),
+    0 0 60px rgba(58, 156, 4, 0.3);
+}
+
+/* Monitor back housing */
+#talking-head::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: linear-gradient(145deg, #563a08, #322805);
+  border-radius: 40px 40px 10px 10px;
+  border-bottom: 30px solid #0f0d0dcd;
+  border-top: 20px solid #0f0d0dcd;
+
+  z-index: -1;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Power LED indicator */
+#talking-head::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: -14px;
+  width: 12px;
+  height: 12px;
+  background: var(--red);
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--red), 0 0 10px var(--red),
+    inset 0 0 3px rgba(255, 255, 255, 0.3);
+  border: 2px solid #5b5b5b;
+  animation: pulse 2s infinite ease-in-out;
+  z-index: 2;
+}
+
+#talking-gif {
+  max-height: 200px;
+  width: auto;
+  transition: filter 0.2s ease, transform 0.1s ease;
+  position: relative;
+  z-index: 1;
+
+  cursor: url("assets/cursor/cursor-point.svg") 4 2, pointer;
+
+  border: 4px solid #5b5a5a;
+  border-radius: 40px;
+  background: #5b5b5b;
+  mask-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 80%,
+    transparent 100%
+  );
+
+  /* Green phosphor glow effect with subtle color filter */
+  filter: grayscale(0.7) sepia(0.3) hue-rotate(60deg) saturate(1.5)
+    brightness(1.05) contrast(1.1) drop-shadow(0 0 10px var(--primary-color))
+    drop-shadow(0 0 20px var(--primary-color));
+}
+
+#talking-head .scanlines {
+  content: "";
+  position: absolute;
+  width: 96%;
+  top: 0;
+  left: 2%;
+  bottom: 10px;
+  pointer-events: none;
+  z-index: 5;
+
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(58, 156, 4, 0.25) 2px,
+    rgba(58, 156, 4, 0.25) 6px,
+    transparent 6px,
+    transparent 9px
+  );
+
+  animation: flicker 10s infinite alternate;
+  border-radius: 40px;
+}
+
+/* onClick styling */
+#talking-gif:active {
+  filter: grayscale(0.9) sepia(0.5) hue-rotate(60deg) saturate(2)
+    brightness(1.2) contrast(1.3) drop-shadow(0 0 20px var(--primary-color))
+    drop-shadow(0 0 35px var(--primary-color));
+
+  transform: scale(0.98);
+  transition: all 0.1s ease;
+}
+
+/* Ambient glow around the entire monitor */
+#talking-head:hover {
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3),
+    inset 0 0 40px rgba(255, 255, 255, 0.15), 0 0 30px rgba(0, 0, 0, 0.8),
+    0 0 80px rgba(58, 156, 4, 0.5);
+}
+
+#talking-head:hover #talking-gif {
+  filter: grayscale(0.8) sepia(0.4) hue-rotate(60deg) saturate(1.7)
+    brightness(1.1) contrast(1.2) drop-shadow(0 0 15px var(--primary-color))
+    drop-shadow(0 0 30px var(--primary-color));
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  40% {
+    opacity: 0.1;
+  }
+  60% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes scrollingLine {
+  from {
+    top: 10%;
+  }
+  to {
+    top: 90%;
+  }
+}
+
+.moving-line {
+  position: absolute;
+  left: 1%;
+  width: 98%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.255);
+  opacity: 0.8;
+  animation: scrollingLine 3s linear infinite;
 }

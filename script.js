@@ -1,4 +1,4 @@
-const gif = document.getElementById("talking-gif");
+const talkingGif = document.getElementById("talking-gif");
 const idleImage = "assets/talking/idle.png";
 
 const talkingAnimations = {
@@ -17,11 +17,61 @@ document.querySelectorAll(".dialog-options a").forEach((link) => {
     const animation = talkingAnimations[targetId];
 
     if (animation) {
-      gif.src = animation.src + "?" + Date.now(); // Force refresh the GIF
+      talkingGif.src = animation.src + "?" + Date.now(); // Force refresh the GIF
 
       setTimeout(() => {
-        gif.src = idleImage;
+        talkingGif.src = idleImage;
       }, animation.duration + transitionDelay); // Wait for GIF duration
     }
   });
 });
+
+const clickedImage = "assets/talking/clicked.png";
+function resetToIdle() {
+  talkingGif.src = idleImage;
+  if (resetTimeout) {
+    clearTimeout(resetTimeout);
+    resetTimeout = null;
+  }
+}
+
+// Function to set clicked state with backup timer
+function setClickedState() {
+  talkingGif.src = clickedImage;
+  // Backup: reset after 5 seconds maximum
+  resetTimeout = setTimeout(resetToIdle, 5000);
+}
+
+// Mouse events
+talkingGif.addEventListener("mousedown", function (e) {
+  // Ignore right-clicks
+  if (e.button === 0) {
+    // Left mouse button only
+    setClickedState();
+  }
+});
+
+talkingGif.addEventListener("mouseup", resetToIdle);
+talkingGif.addEventListener("mouseleave", resetToIdle);
+
+// Handle drag prevention
+talkingGif.addEventListener("dragstart", function (e) {
+  e.preventDefault();
+  resetToIdle();
+});
+
+// Handle focus loss
+window.addEventListener("blur", resetToIdle);
+
+// Touch events
+talkingGif.addEventListener("touchstart", function (e) {
+  e.preventDefault();
+  setClickedState();
+});
+
+talkingGif.addEventListener("touchend", function (e) {
+  e.preventDefault();
+  resetToIdle();
+});
+
+talkingGif.addEventListener("touchcancel", resetToIdle);
