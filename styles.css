@@ -3,8 +3,9 @@
   --accent-color-muted: #887800;
   --dark: #1a1a1a;
   --primary-color: #267402;
+  --primary-color-bright: #3a9c04;
+  --primary-color-dark: #204a01;
   --background-color: #d5d5d5ce;
-  --secondary-color-dark: #204a01;
   --gray: #bdbdbd;
   --white: #ffffff;
   --text-color: #141b01;
@@ -30,7 +31,6 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
 a,
@@ -42,7 +42,6 @@ input,
 textarea,
 p,
 span,
-div,
 label,
 h1,
 h2,
@@ -78,41 +77,54 @@ dfn {
 .disabled {
   cursor: url("assets/cursor/cursor-not-allowed.svg") 16 16, not-allowed;
 }
+
+.dialog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dialog-container:target {
+  display: flex;
+}
 .dialog {
   padding: 0.5rem;
+  max-width: 50rem;
+  flex-grow: 1;
 }
 
 .dialog-options {
-  border: 3px solid var(--accent-color);
+  border: 3px solid var(--primary-color);
   border-radius: 1px;
   padding: 0.5rem;
-  height: 8rem;
+  height: 10rem;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: var(--background-color);
+  background-color: rgba(0, 0, 0, 0.3);
   li {
     list-style: none;
     width: calc(100% - 1rem);
-    height: 2.5rem;
+    height: 3rem;
 
     a {
       display: block;
       width: 100%;
       height: 100%;
       padding: 0.5rem;
-      color: var(--accent-color);
+      color: var(--primary-color);
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+
       text-decoration: none;
+      font-size: 1.2rem;
       font-weight: bold;
 
       border: 3px solid transparent;
       &:hover {
-        border: 3px solid var(--accent-color); /* Ensures hover effect remains */
+        border: 3px solid var(--primary-color); /* Ensures hover effect remains */
         border-radius: 1px;
       }
       &:visited {
-        color: var(--accent-color-muted);
+        color: var(--primary-color-dark);
       }
     }
   }
@@ -133,15 +145,15 @@ section:target {
 
 ::-webkit-scrollbar-track {
   background: var(--dark);
-  border: 2px solid var(--accent-color);
+  border: 2px solid var(--primary-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-color);
+  background: var(--primary-color);
   border-radius: 2px;
-  border: 1px solid var(--accent-color-muted);
+  border: 1px solid var(--primary-color-dark);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c4ae00; /* Slightly brighter shade */
+  background: var(--primary-color-bright); /* Slightly brighter shade */
 }
