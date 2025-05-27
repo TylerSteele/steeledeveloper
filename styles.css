@@ -5,11 +5,21 @@
   --primary-color: #3cbf00;
   --primary-color-bright: #55f200;
   --primary-color-dark: #204a01;
+  --primary-color-glow: rgba(58, 156, 4, 0.5);
+  --primary-color-glow-subtle: rgba(58, 156, 4, 0.25);
   --red: #bd2020;
   --background-color: #d5d5d5ce;
   --gray: #bdbdbd;
   --white: #ffffff;
   --text-color: #141b01;
+}
+
+body[data-theme="amber"] {
+  --primary-color: #ffb000;
+  --primary-color-bright: #ffc733;
+  --primary-color-dark: #664400;
+  --primary-color-glow: rgba(255, 176, 0, 0.5);
+  --primary-color-glow-subtle: rgba(255, 176, 0, 0.25);
 }
 
 @font-face {
@@ -28,7 +38,6 @@
 }
 
 body {
-  cursor: url("assets/cursor/cursor.svg") 1 4, auto;
   position: relative;
   margin: 0;
   padding: 0;
@@ -76,10 +85,23 @@ body::after {
   z-index: -1;
   pointer-events: none;
 }
+/* Custom Cursor Styles */
+body {
+  cursor: url("assets/cursor/cursor.svg") 1 4, auto;
+}
+
+body[data-theme="amber"] {
+  cursor: url("assets/cursor/cursor-amber.svg") 1 4, auto;
+}
 
 a,
 button {
   cursor: url("assets/cursor/cursor-point.svg") 4 2, pointer;
+}
+
+body[data-theme="amber"] a,
+body[data-theme="amber"] button {
+  cursor: url("assets/cursor/cursor-point-amber.svg") 4 2, pointer;
 }
 
 input,
@@ -118,10 +140,56 @@ dfn {
   cursor: url("assets/cursor/cursor-i-beam.svg") 8 16, text;
 }
 
+body[data-theme="amber"]
+  :is(
+    input,
+    textarea,
+    p,
+    span,
+    label,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    em,
+    b,
+    i,
+    mark,
+    small,
+    abbr,
+    time,
+    address,
+    blockquote,
+    code,
+    pre,
+    dl,
+    dt,
+    dd,
+    th,
+    td,
+    cite,
+    var,
+    kbd,
+    samp,
+    dfn
+  ) {
+  cursor: url("assets/cursor/cursor-i-beam-amber.svg") 8 16, text;
+}
+
 .disabled {
   cursor: url("assets/cursor/cursor-not-allowed.svg") 16 16, not-allowed;
 }
 
+body[data-theme="amber"] .disabled {
+  cursor: url("assets/cursor/cursor-not-allowed-amber.svg") 16 16, not-allowed;
+}
+
+/* End Custom Cursor Styles */
+
+/* Dialog Styles */
 .dialog-container {
   display: flex;
   justify-content: center;
@@ -173,6 +241,7 @@ dfn {
     }
   }
 }
+/* End Dialog Styles */
 
 section {
   display: none;
@@ -182,7 +251,7 @@ section {
 section:target {
   display: block;
 }
-
+/* Scrollbar Styles */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -201,7 +270,9 @@ section:target {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color-bright); /* Slightly brighter shade */
 }
+/* End Scrollbar Styles */
 
+/* Talking Head Styles */
 #talking-head {
   text-align: center;
   margin: 2rem auto;
@@ -214,7 +285,7 @@ section:target {
   padding: 2px;
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3),
     inset 0 0 40px rgba(255, 255, 255, 0.1), 0 0 30px rgba(0, 0, 0, 0.8),
-    0 0 60px rgba(58, 156, 4, 0.3);
+    0 0 60px var(--primary-color-glow-subtle);
 }
 
 /* Monitor back housing */
@@ -225,9 +296,9 @@ section:target {
   left: -20px;
   right: -20px;
   bottom: -20px;
-  background: linear-gradient(145deg, #563a08, #322805);
+  background: linear-gradient(145deg, #563a08, #6f250c);
   border-radius: 40px 40px 10px 10px;
-  border-bottom: 30px solid #0f0d0dcd;
+  border-bottom: 6px solid #0f0d0dcd;
   border-top: 20px solid #0f0d0dcd;
 
   z-index: -1;
@@ -238,7 +309,7 @@ section:target {
 #talking-head::after {
   content: "";
   position: absolute;
-  bottom: -10px;
+  bottom: -8px;
   right: -14px;
   width: 12px;
   height: 12px;
@@ -257,9 +328,6 @@ section:target {
   transition: filter 0.2s ease, transform 0.1s ease;
   position: relative;
   z-index: 1;
-
-  cursor: url("assets/cursor/cursor-point.svg") 4 2, pointer;
-
   border: 4px solid #5b5a5a;
   border-radius: 40px;
   background: #5b5b5b;
@@ -273,6 +341,16 @@ section:target {
   filter: grayscale(0.7) sepia(0.3) hue-rotate(60deg) saturate(1.5)
     brightness(1.05) contrast(1.1) drop-shadow(0 0 10px var(--primary-color))
     drop-shadow(0 0 20px var(--primary-color));
+
+  cursor: url("assets/cursor/cursor-point.svg") 4 2, pointer;
+}
+
+body[data-theme="amber"] #talking-gif {
+  /* Extra amber phosphor glow to compensate for green wall */
+  filter: grayscale(0.6) sepia(0.8) hue-rotate(-10deg) saturate(2.5)
+    brightness(1.15) contrast(1.15) drop-shadow(0 0 16px var(--primary-color))
+    drop-shadow(0 0 32px var(--primary-color));
+  cursor: url("assets/cursor/cursor-point-amber.svg") 4 2, pointer;
 }
 
 #talking-head .scanlines {
@@ -289,8 +367,8 @@ section:target {
     0deg,
     transparent,
     transparent 2px,
-    rgba(58, 156, 4, 0.25) 2px,
-    rgba(58, 156, 4, 0.25) 6px,
+    var(--primary-color-glow-subtle) 2px,
+    var(--primary-color-glow-subtle) 6px,
     transparent 6px,
     transparent 9px
   );
@@ -313,13 +391,19 @@ section:target {
 #talking-head:hover {
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3),
     inset 0 0 40px rgba(255, 255, 255, 0.15), 0 0 30px rgba(0, 0, 0, 0.8),
-    0 0 80px rgba(58, 156, 4, 0.5);
+    0 0 80px var(--primary-color-glow);
 }
 
 #talking-head:hover #talking-gif {
   filter: grayscale(0.8) sepia(0.4) hue-rotate(60deg) saturate(1.7)
     brightness(1.1) contrast(1.2) drop-shadow(0 0 15px var(--primary-color))
     drop-shadow(0 0 30px var(--primary-color));
+}
+
+body[data-theme="amber"] #talking-head:hover #talking-gif {
+  filter: grayscale(0.5) sepia(1) hue-rotate(-15deg) saturate(3)
+    brightness(1.22) contrast(1.2) drop-shadow(0 0 22px var(--primary-color))
+    drop-shadow(0 0 44px var(--primary-color));
 }
 
 @keyframes flicker {
@@ -382,4 +466,49 @@ section:target {
   background: rgba(255, 255, 255, 0.255);
   opacity: 0.8;
   animation: moveScanlinePartial 3s linear infinite;
+}
+/* End Talking Head Styles */
+
+/* Color Toggle Styles */
+.toggle-container {
+  position: relative;
+  width: 120px;
+  height: 50px;
+  background: #222;
+  border: 4px solid var(--primary-color);
+  border-radius: 8px;
+  box-shadow: 0 0 15px var(--shadow-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  cursor: url("assets/cursor/cursor-point.svg") 4 2, pointer;
+}
+
+body[data-theme="amber"] .toggle-container {
+  cursor: url("assets/cursor/cursor-point-amber.svg") 4 2, pointer;
+}
+
+.toggle-label {
+  display: inline;
+  padding: 0 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--primary-color);
+}
+
+.switch {
+  position: absolute;
+  width: 50px;
+  left: 0;
+  height: 40px;
+  background: var(--primary-color);
+  border: 3px solid black;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px black, 0 0 10px var(--shadow-color);
+  transition: transform 0.3s ease-in-out;
+}
+
+.toggle-container.on .switch {
+  transform: translateX(60px);
 }

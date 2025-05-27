@@ -75,3 +75,33 @@ talkingGif.addEventListener("touchend", function (e) {
 });
 
 talkingGif.addEventListener("touchcancel", resetToIdle);
+
+// Color toggle functionality
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("color-toggle");
+  const body = document.body;
+
+  function toggleSwitch() {
+    const isAmber = body.getAttribute("data-theme") === "amber";
+    body.setAttribute("data-theme", isAmber ? "" : "amber");
+
+    container.classList.toggle("on");
+    container.setAttribute("aria-checked", isAmber ? "false" : "true");
+    container.setAttribute(
+      "aria-label",
+      isAmber
+        ? "Theme toggle: Green mode active"
+        : "Theme toggle: Amber mode active"
+    );
+  }
+
+  function handleKey(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      toggleSwitch();
+    }
+  }
+
+  // Add event listeners
+  container.addEventListener("click", toggleSwitch);
+  container.addEventListener("keydown", handleKey);
+});
