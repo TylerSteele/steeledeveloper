@@ -1,3 +1,5 @@
+/* Global styles */
+
 :root {
   --accent-color: #aa9700;
   --accent-color-muted: #887800;
@@ -45,8 +47,15 @@ body {
   color: #fff; /* Text is white for high contrast */
   font-family: sans-serif;
 
-  /* Metallic Dark Gradient Background */
   background: linear-gradient(135deg, #1b1b1b, #0a0a0a);
+  display: grid;
+  grid-template-areas:
+    "talking-head header-and-controls"
+    "dialog dialog"
+    "sections sections";
+  grid-template-rows: auto 1fr 3fr;
+  grid-template-columns: 1fr 300px;
+  padding: 2rem;
 }
 
 /* Subtle Noise/Texture Layer Using an SVG (minimal opacity so content remains clear) */
@@ -85,6 +94,7 @@ body::after {
   z-index: -1;
   pointer-events: none;
 }
+
 /* Custom Cursor Styles */
 body {
   cursor: url("assets/cursor/cursor.svg") 1 4, auto;
@@ -188,9 +198,42 @@ body[data-theme="amber"] .disabled {
 }
 
 /* End Custom Cursor Styles */
+/* End Global styles */
+
+/* Header Styles */
+#header-and-controls {
+  grid-area: header-and-controls;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+header {
+  text-align: right;
+  padding-right: 2rem;
+  margin: 0;
+  color: var(--primary-color-bright);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  #name,
+  #job-title {
+    margin: 0;
+    padding: 0;
+  }
+}
+#name {
+  font-size: 1.5rem;
+}
+
+#job-title {
+  font-size: 1.2rem;
+}
 
 /* Dialog Styles */
 .dialog-container {
+  grid-area: dialog;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -243,6 +286,11 @@ body[data-theme="amber"] .disabled {
 }
 /* End Dialog Styles */
 
+/* Section Styles */
+#sections {
+  grid-area: sections;
+}
+
 section {
   display: none;
   height: 10rem;
@@ -251,6 +299,8 @@ section {
 section:target {
   display: block;
 }
+/* End Section Styles */
+
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
   width: 8px;
@@ -274,10 +324,12 @@ section:target {
 
 /* Talking Head Styles */
 #talking-head {
+  grid-area: talking-head;
   text-align: center;
   margin: 2rem auto;
   position: relative;
   width: fit-content;
+  height: fit-content;
 
   background: linear-gradient(145deg, #696157, #2c1e05);
   border: 2px solid #312f2ea8;
@@ -473,6 +525,7 @@ body[data-theme="amber"] #talking-head:hover #talking-gif {
 /* End Talking Head Styles */
 
 /* Color Toggle Styles */
+
 .toggle-container {
   position: relative;
   width: 120px;

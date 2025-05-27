@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Page Title -->
-    <title>My Portfolio</title>
+    <title>Steele Portfolio</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css" />
@@ -28,43 +28,31 @@
   </head>
 
   <body>
-    <!-- Header -->
-    <h1>Tyler Steele</h1>
-    <h2>Software Engineer</h2>
+    <div id="header-and-controls">
+      <!-- Header -->
+      <header>
+        <h1 id="name">Tyler Steele</h1>
+        <h2 id="job-title">Software Engineer</h2>
+      </header>
 
-    <!-- Sections -->
-    <section id="introduction">
-      <h2>Hi, my name is...</h2>
-      <p>Type your name here.</p>
-      <input type="text" id="name-input" placeholder="Type your name here..." />
-    </section>
+      <!-- Controls -->
+      <div id="controls">
+        <div
+          id="color-toggle"
+          class="toggle-container"
+          role="switch"
+          aria-checked="false"
+          tabindex="0"
+          aria-label="Theme toggle: Switch between amber and green. Green mode active"
+        >
+          <div class="toggle-label" aria-live="polite">Amber</div>
+          <div class="switch"></div>
+          <div class="toggle-label" aria-live="polite">Green</div>
+        </div>
+      </div>
+    </div>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Brief introduction about yourself.</p>
-    </section>
-
-    <section id="software">
-      <h2>Software</h2>
-      <p>Here's some things I've worked on.</p>
-    </section>
-
-    <section id="presentations">
-      <h2>Presentations</h2>
-      <p>Here's some presentations I've given.</p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Reach out with a message below.</p>
-      <input
-        type="text"
-        id="contact-input"
-        placeholder="Type your message here..."
-      />
-    </section>
-
-    <!-- Navigation -->
+    <!-- Talking Head -->
     <div id="talking-head">
       <img id="talking-gif" src="assets/talking/idle.png" alt="Talking Head" />
       <div class="scanlines">
@@ -72,22 +60,24 @@
       </div>
     </div>
 
+    <!-- Navigation -->
     <div class="dialog-container">
       <nav class="dialog">
         <ul class="dialog-options">
           <li>
-            <a href="#introduction">[About Me] What am I even looking at?</a>
+            <a href="#introduction">[About Me] Who are you?</a>
           </li>
           <li>
             <a href="#software">[Work] What do you do around here?</a>
           </li>
           <li>
             <a href="#presentations"
-              >[Presentations] Can you teach me how to survive the wasteland?</a
+              >[Presentations] Can you teach me how to survive in the
+              wasteland?</a
             >
           </li>
           <li>
-            <a href="#fun">[Personal] What do you do for fun around here?</a>
+            <a href="#fun">[Personal] What do you do for fun?</a>
           </li>
           <li>
             <a href="#contact"
@@ -97,17 +87,43 @@
         </ul>
       </nav>
     </div>
-    <div
-      id="color-toggle"
-      class="toggle-container"
-      role="switch"
-      aria-checked="false"
-      tabindex="0"
-      aria-label="Theme toggle: Switch between amber and green. Green mode active"
-    >
-      <div class="toggle-label" aria-live="polite">Amber</div>
-      <div class="switch"></div>
-      <div class="toggle-label" aria-live="polite">Green</div>
+
+    <!-- Sections -->
+    <div id="sections">
+      <section id="introduction">
+        <h2>Hi, my name is...</h2>
+        <p>Type your name here.</p>
+        <input
+          type="text"
+          id="name-input"
+          placeholder="Type your name here..."
+        />
+      </section>
+
+      <section id="about">
+        <h2>About Me</h2>
+        <p>Brief introduction about yourself.</p>
+      </section>
+
+      <section id="software">
+        <h2>Software</h2>
+        <p>Here's some things I've worked on.</p>
+      </section>
+
+      <section id="presentations">
+        <h2>Presentations</h2>
+        <p>Here's some presentations I've given.</p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Reach out with a message below.</p>
+        <input
+          type="text"
+          id="contact-input"
+          placeholder="Type your message here..."
+        />
+      </section>
     </div>
 
     <!-- JavaScript -->
