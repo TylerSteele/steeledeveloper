@@ -39,7 +39,7 @@ function resetToIdle() {
 function setClickedState() {
   talkingGif.src = clickedImage;
   // Backup: reset after 5 seconds maximum
-  resetTimeout = setTimeout(resetToIdle, 5000);
+  resetTimeout = setTimeout(resetToIdle, 10000);
 }
 
 // Mouse events
