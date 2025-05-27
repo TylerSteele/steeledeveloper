@@ -1,4 +1,5 @@
 const talkingGif = document.getElementById("talking-gif");
+const talkingHeadContainer = document.getElementById("talking-head");
 const idleImage = "assets/talking/idle.png";
 
 const talkingAnimations = {
@@ -43,7 +44,7 @@ function setClickedState() {
 }
 
 // Mouse events
-talkingGif.addEventListener("mousedown", function (e) {
+talkingHeadContainer.addEventListener("mousedown", function (e) {
   // Ignore right-clicks
   if (e.button === 0) {
     // Left mouse button only
@@ -51,11 +52,11 @@ talkingGif.addEventListener("mousedown", function (e) {
   }
 });
 
-talkingGif.addEventListener("mouseup", resetToIdle);
-talkingGif.addEventListener("mouseleave", resetToIdle);
+talkingHeadContainer.addEventListener("mouseup", resetToIdle);
+talkingHeadContainer.addEventListener("mouseleave", resetToIdle);
 
 // Handle drag prevention
-talkingGif.addEventListener("dragstart", function (e) {
+talkingHeadContainer.addEventListener("dragstart", function (e) {
   e.preventDefault();
   resetToIdle();
 });
@@ -64,17 +65,17 @@ talkingGif.addEventListener("dragstart", function (e) {
 window.addEventListener("blur", resetToIdle);
 
 // Touch events
-talkingGif.addEventListener("touchstart", function (e) {
+talkingHeadContainer.addEventListener("touchstart", function (e) {
   e.preventDefault();
   setClickedState();
 });
 
-talkingGif.addEventListener("touchend", function (e) {
+talkingHeadContainer.addEventListener("touchend", function (e) {
   e.preventDefault();
   resetToIdle();
 });
 
-talkingGif.addEventListener("touchcancel", resetToIdle);
+talkingHeadContainer.addEventListener("touchcancel", resetToIdle);
 
 // Color toggle functionality
 document.addEventListener("DOMContentLoaded", () => {
