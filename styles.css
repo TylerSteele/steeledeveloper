@@ -9,6 +9,7 @@
   --primary-color-dark: #204a01;
   --primary-color-glow: rgba(58, 156, 4, 0.5);
   --primary-color-glow-subtle: rgba(58, 156, 4, 0.25);
+  --primary-color-dark-inactive: #664400;
   --red: #bd2020;
   --background-color: #d5d5d5ce;
   --gray: #bdbdbd;
@@ -22,6 +23,7 @@ body[data-theme="amber"] {
   --primary-color-dark: #664400;
   --primary-color-glow: rgba(255, 176, 0, 0.5);
   --primary-color-glow-subtle: rgba(255, 176, 0, 0.25);
+  --primary-color-dark-inactive: #204a01;
 }
 
 @font-face {
@@ -538,11 +540,6 @@ body[data-theme="amber"] #talking-head:hover #talking-gif {
   align-items: center;
   justify-content: space-between;
   padding: 5px;
-  cursor: url("assets/cursor/cursor-point.svg") 4 2, pointer;
-}
-
-body[data-theme="amber"] .toggle-container {
-  cursor: url("assets/cursor/cursor-point-amber.svg") 4 2, pointer;
 }
 
 .toggle-label {
@@ -568,3 +565,33 @@ body[data-theme="amber"] .toggle-container {
 .toggle-container.on .switch {
   transform: translateX(60px);
 }
+
+#toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: url("assets/cursor/cursor-point.svg") 4 2, pointer;
+}
+body[data-theme="amber"] #toggle-wrapper {
+  cursor: url("assets/cursor/cursor-point-amber.svg") 4 2, pointer;
+}
+
+.lightbulb-icon {
+  color: var(--primary-color-dark-inactive);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+/* Right bulb (Amber) - active when toggle is NOT 'on' */
+.toggle-container:not(.on) ~ .lightbulb-left,
+.lightbulb-left:has(~ .toggle-container:not(.on)),
+
+/* Left bulb (Green) - active when toggle IS 'on' */
+.toggle-container.on ~ .lightbulb-right {
+  color: var(--primary-color-bright);
+  opacity: 1;
+  filter: drop-shadow(0 0 3px var(--primary-color))
+    drop-shadow(0 0 6px var(--primary-color));
+}
+
+/* End Color Toggle Styles */

@@ -79,16 +79,17 @@ talkingHeadContainer.addEventListener("touchcancel", resetToIdle);
 
 // Color toggle functionality
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("color-toggle");
+  const toggle = document.getElementById("color-toggle");
+  const container = document.getElementById("toggle-wrapper");
   const body = document.body;
 
   function toggleSwitch() {
     const isAmber = body.getAttribute("data-theme") === "amber";
     body.setAttribute("data-theme", isAmber ? "" : "amber");
 
-    container.classList.toggle("on");
-    container.setAttribute("aria-checked", isAmber ? "false" : "true");
-    container.setAttribute(
+    toggle.classList.toggle("on");
+    toggle.setAttribute("aria-checked", isAmber ? "false" : "true");
+    toggle.setAttribute(
       "aria-label",
       isAmber
         ? "Theme toggle: Green mode active"
