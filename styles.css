@@ -735,6 +735,7 @@ footer::before {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
+  height: 100%;
 }
 
 .nav-section {
@@ -810,8 +811,8 @@ footer::before {
   border: 2px solid var(--primary-color-dark);
   border-radius: 4px;
   padding: 1.5rem;
-  text-align: center;
   position: relative;
+  height: 100%;
 }
 
 .footer-info::after {
@@ -852,6 +853,7 @@ footer::before {
 
 .footer-info a:hover {
   text-shadow: 0 0 5px var(--primary-color-glow);
+  text-decoration: underline;
 }
 
 .footer-bottom {
