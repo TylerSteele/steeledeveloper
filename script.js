@@ -1,7 +1,8 @@
-// Talking Head animation
+// Talking Head animation variables
 const talkingGif = document.getElementById("talking-gif");
 const talkingHeadContainer = document.getElementById("talking-head");
 const idleImage = "assets/talking/idle.png";
+const clickedImage = "assets/talking/clicked.png";
 
 const talkingAnimations = {
   introduction: { src: "assets/talking/introduction.gif", duration: 8000 },
@@ -11,35 +12,11 @@ const talkingAnimations = {
   contact: { src: "assets/talking/contact.gif", duration: 2830 },
 };
 
-const transitionDelay = 500; // Delay before returning to idle image
-
-// Store the timeout ID so we can clear it
+const transitionDelay = 500;
 let currentTimeout = null;
-
-document.querySelectorAll(".dialog-options a").forEach((link) => {
-  link.addEventListener("click", () => {
-    const targetId = link.getAttribute("href").substring(1);
-    const animation = talkingAnimations[targetId];
-
-    if (animation) {
-      // Clear any existing timeout to prevent conflicts
-      if (currentTimeout) {
-        clearTimeout(currentTimeout);
-        currentTimeout = null;
-      }
-
-      talkingGif.src = animation.src + "?" + Date.now(); // Force refresh the GIF
-
-      currentTimeout = setTimeout(() => {
-        talkingGif.src = idleImage;
-        currentTimeout = null;
-      }, animation.duration + transitionDelay);
-    }
-  });
-});
-
-const clickedImage = "assets/talking/clicked.png";
 let resetTimeout = null;
+
+// Utility functions
 function resetToIdle() {
   talkingGif.src = idleImage;
   if (resetTimeout) {
@@ -48,49 +25,63 @@ function resetToIdle() {
   }
 }
 
-// Function to set clicked state with backup timer
 function setClickedState() {
   talkingGif.src = clickedImage;
-  // Backup: reset after 10 seconds maximum
   resetTimeout = setTimeout(resetToIdle, 5000);
 }
 
-// Mouse events
-talkingHeadContainer.addEventListener("mousedown", function (e) {
-  // Ignore right-clicks
-  if (e.button === 0) {
-    // Left mouse button only
-    setClickedState();
-  }
-});
-
-talkingHeadContainer.addEventListener("mouseup", resetToIdle);
-talkingHeadContainer.addEventListener("mouseleave", resetToIdle);
-
-// Handle drag prevention
-talkingHeadContainer.addEventListener("dragstart", function (e) {
-  e.preventDefault();
-  resetToIdle();
-});
-
-// Handle focus loss
-window.addEventListener("blur", resetToIdle);
-
-// Touch events
-talkingHeadContainer.addEventListener("touchstart", function (e) {
-  e.preventDefault();
-  setClickedState();
-});
-
-talkingHeadContainer.addEventListener("touchend", function (e) {
-  e.preventDefault();
-  resetToIdle();
-});
-
-talkingHeadContainer.addEventListener("touchcancel", resetToIdle);
-
-// Color toggle functionality
 document.addEventListener("DOMContentLoaded", () => {
+  // === TALKING HEAD NAVIGATION ===
+  document.querySelectorAll(".dialog-options a").forEach((link) => {
+    link.addEventListener("click", () => {
+      const targetId = link.getAttribute("href").substring(1);
+      const animation = talkingAnimations[targetId];
+
+      if (animation) {
+        if (currentTimeout) {
+          clearTimeout(currentTimeout);
+          currentTimeout = null;
+        }
+
+        talkingGif.src = animation.src + "?" + Date.now();
+
+        currentTimeout = setTimeout(() => {
+          talkingGif.src = idleImage;
+          currentTimeout = null;
+        }, animation.duration + transitionDelay);
+      }
+    });
+  });
+
+  // === TALKING HEAD INTERACTIONS ===
+  // Mouse events
+  talkingHeadContainer.addEventListener("mousedown", function (e) {
+    if (e.button === 0) {
+      setClickedState();
+    }
+  });
+
+  talkingHeadContainer.addEventListener("mouseup", resetToIdle);
+  talkingHeadContainer.addEventListener("mouseleave", resetToIdle);
+  talkingHeadContainer.addEventListener("dragstart", function (e) {
+    e.preventDefault();
+    resetToIdle();
+  });
+
+  // Touch events
+  talkingHeadContainer.addEventListener("touchstart", function (e) {
+    e.preventDefault();
+    setClickedState();
+  });
+
+  talkingHeadContainer.addEventListener("touchend", function (e) {
+    e.preventDefault();
+    resetToIdle();
+  });
+
+  talkingHeadContainer.addEventListener("touchcancel", resetToIdle);
+
+  // === COLOR TOGGLE ===
   const toggle = document.getElementById("color-toggle");
   const container = document.getElementById("toggle-wrapper");
   const body = document.body;
@@ -115,19 +106,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Add event listeners
   container.addEventListener("click", toggleSwitch);
   container.addEventListener("keydown", handleKey);
-});
 
-// Set years
-document.addEventListener("DOMContentLoaded", () => {
+  // === DYNAMIC CONTENT ===
   // Years worked calculation
   const startDate = new Date("2018-02-01");
   const currentDate = new Date();
-
   const diffInMilliseconds = currentDate - startDate;
-  const diffInYears = diffInMilliseconds / (1000 * 60 * 60 * 24 * 365.25); // Account for leap years
+  const diffInYears = diffInMilliseconds / (1000 * 60 * 60 * 24 * 365.25);
 
   document.getElementById(
     "years-worked-text"
@@ -138,17 +125,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // Set current year in footer
   const currentYear = new Date().getFullYear();
   const copyrightElement = document.getElementById("copyright-year");
-
   if (copyrightElement) {
     copyrightElement.textContent = currentYear;
   }
-});
 
-// Handle link visited behavior
-document.addEventListener("DOMContentLoaded", () => {
+  // === NAVIGATION LINK TRACKING ===
   document.querySelectorAll(".nav-links a").forEach((link) => {
     link.addEventListener("click", function () {
       this.classList.add("clicked");
     });
   });
 });
+
+// Global event listeners that don't need DOM to be ready
+window.addEventListener("blur", resetToIdle);
