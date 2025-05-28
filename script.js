@@ -143,3 +143,12 @@ document.addEventListener("DOMContentLoaded", () => {
     copyrightElement.textContent = currentYear;
   }
 });
+
+// Handle link visited behavior
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", function () {
+      this.classList.add("clicked");
+    });
+  });
+});

@@ -784,6 +784,11 @@ footer::before {
   font-family: "Courier New", monospace;
 }
 
+.nav-links a.clicked {
+  color: var(--primary-color);
+  text-shadow: none;
+}
+
 .nav-links a::before {
   content: "▶ ";
   margin-right: 0.5rem;
