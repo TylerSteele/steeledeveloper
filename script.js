@@ -1,3 +1,4 @@
+// Talking Head animation
 const talkingGif = document.getElementById("talking-gif");
 const talkingHeadContainer = document.getElementById("talking-head");
 const idleImage = "assets/talking/idle.png";
@@ -106,4 +107,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add event listeners
   container.addEventListener("click", toggleSwitch);
   container.addEventListener("keydown", handleKey);
+});
+
+// Set years worked text
+document.addEventListener("DOMContentLoaded", () => {
+  const startDate = new Date("2018-02-01");
+  const currentDate = new Date();
+
+  const diffInMilliseconds = currentDate - startDate;
+  const diffInYears = diffInMilliseconds / (1000 * 60 * 60 * 24 * 365.25); // Account for leap years
+
+  document.getElementById(
+    "years-worked-text"
+  ).textContent = `I've been working as a software developer professionally for ${Math.floor(
+    diffInYears
+  )} years.`;
 });
