@@ -39,6 +39,7 @@ document.querySelectorAll(".dialog-options a").forEach((link) => {
 });
 
 const clickedImage = "assets/talking/clicked.png";
+let resetTimeout = null;
 function resetToIdle() {
   talkingGif.src = idleImage;
   if (resetTimeout) {
