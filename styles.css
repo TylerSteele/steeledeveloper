@@ -52,12 +52,45 @@ body {
   background: linear-gradient(135deg, #1b1b1b, #0a0a0a);
   display: grid;
   grid-template-areas:
-    "talking-head header-and-controls"
-    "dialog dialog"
-    "sections sections";
-  grid-template-rows: auto 1fr 3fr;
-  grid-template-columns: 1fr 300px;
+    "header-and-controls"
+    "talking-head"
+    "dialog"
+    "sections";
+  grid-template-rows: auto auto 1fr 3fr;
+  grid-template-columns: 1fr;
   padding: 2rem;
+}
+
+/* Medium screens: Talking head + header in same row */
+@media (min-width: 768px) {
+  body {
+    grid-template-areas:
+      "talking-head header-and-controls"
+      "dialog dialog"
+      "sections sections";
+    grid-template-columns: 2fr 300px;
+    grid-template-rows: auto 1fr 3fr;
+  }
+}
+
+/* Large Screens (Desktops & Monitors) */
+@media (min-width: 1024px) {
+  body {
+    grid-template-areas:
+      ". talking-head header-and-controls"
+      "dialog dialog dialog"
+      "sections sections sections";
+    grid-template-columns: 200px 3fr 200px;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1200px) {
+  body {
+    grid-template-columns: 200px 1fr 200px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
 
 /* Subtle Noise/Texture Layer Using an SVG (minimal opacity so content remains clear) */
@@ -206,15 +239,18 @@ body[data-theme="amber"] .disabled {
 #header-and-controls {
   grid-area: header-and-controls;
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
   align-items: flex-end;
-  justify-content: space-around;
   padding: 1rem;
+  @media (min-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 header {
   text-align: right;
-  padding-right: 2rem;
   margin: 0;
   color: var(--primary-color-bright);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -223,6 +259,10 @@ header {
   #job-title {
     margin: 0;
     padding: 0;
+  }
+
+  #name {
+    margin-bottom: 0.5rem;
   }
 }
 #name {
@@ -240,9 +280,11 @@ header {
   justify-content: center;
   align-items: center;
 }
+
 .dialog-container:target {
   display: flex;
 }
+
 .dialog {
   padding: 0.5rem;
   max-width: 50rem;
@@ -258,28 +300,33 @@ header {
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.3);
+
   li {
     list-style: none;
     width: calc(100% - 1rem);
-    height: 3rem;
+    min-height: 3rem;
+    flex: 1 0 auto;
 
     a {
-      display: block;
+      display: flex;
+      align-items: center;
       width: 100%;
       height: 100%;
+      min-height: 3rem;
       padding: 0.5rem;
       color: var(--primary-color-bright);
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-
       text-decoration: none;
       font-size: 1.2rem;
       font-weight: bold;
-
       border: 3px solid transparent;
+      box-sizing: border-box;
+
       &:hover {
-        border: 3px solid var(--primary-color-bright); /* Ensures hover effect remains */
+        border: 3px solid var(--primary-color-bright);
         border-radius: 1px;
       }
+
       &:visited {
         color: var(--primary-color);
       }
@@ -305,7 +352,7 @@ section:target {
 
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 14px;
 }
 
 ::-webkit-scrollbar-track {
