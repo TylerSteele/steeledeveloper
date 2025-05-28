@@ -353,6 +353,10 @@ header {
         color: var(--primary-color);
       }
     }
+
+    a.clicked {
+      color: var(--primary-color);
+    }
   }
 }
 /* End Dialog Styles */
@@ -782,11 +786,6 @@ footer::before {
   padding: 0.3rem 0;
   transition: all 0.3s ease;
   font-family: "Courier New", monospace;
-}
-
-.nav-links a.clicked {
-  color: var(--primary-color);
-  text-shadow: none;
 }
 
 .nav-links a::before {

@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // === NAVIGATION LINK TRACKING ===
-  document.querySelectorAll(".nav-links a").forEach((link) => {
+  document.querySelectorAll(".dialog-options li a").forEach((link) => {
     link.addEventListener("click", function () {
       this.classList.add("clicked");
     });
