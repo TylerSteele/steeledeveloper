@@ -1,15 +1,23 @@
+import idleImageUrl from "./assets/talking/idle.png";
+import clickedImageUrl from "./assets/talking/clicked.png";
+import introGifUrl from "./assets/talking/introduction.gif";
+import softwareGifUrl from "./assets/talking/software.gif";
+import presentationsGifUrl from "./assets/talking/presentations.gif";
+import funGifUrl from "./assets/talking/fun.gif";
+import contactGifUrl from "./assets/talking/contact.gif";
+
 // Talking Head animation variables
 const talkingGif = document.getElementById("talking-gif");
 const talkingHeadContainer = document.getElementById("talking-head");
-const idleImage = "assets/talking/idle.png";
-const clickedImage = "assets/talking/clicked.png";
+const idleImage = idleImageUrl;
+const clickedImage = clickedImageUrl;
 
 const talkingAnimations = {
-  introduction: { src: "assets/talking/introduction.gif", duration: 8000 },
-  software: { src: "assets/talking/software.gif", duration: 8170 },
-  presentations: { src: "assets/talking/presentations.gif", duration: 9500 },
-  fun: { src: "assets/talking/fun.gif", duration: 6170 },
-  contact: { src: "assets/talking/contact.gif", duration: 2830 },
+  introduction: { src: introGifUrl, duration: 8000 },
+  software: { src: softwareGifUrl, duration: 8170 },
+  presentations: { src: presentationsGifUrl, duration: 9500 },
+  fun: { src: funGifUrl, duration: 6170 },
+  contact: { src: contactGifUrl, duration: 2830 },
 };
 
 const transitionDelay = 500;
@@ -30,6 +38,7 @@ function setClickedState() {
   resetTimeout = setTimeout(resetToIdle, 5000);
 }
 
+// Single DOMContentLoaded event listener
 document.addEventListener("DOMContentLoaded", () => {
   // === TALKING HEAD NAVIGATION ===
   document.querySelectorAll(".dialog-options a").forEach((link) => {
