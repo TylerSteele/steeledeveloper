@@ -109,8 +109,9 @@ document.addEventListener("DOMContentLoaded", () => {
   container.addEventListener("keydown", handleKey);
 });
 
-// Set years worked text
+// Set years
 document.addEventListener("DOMContentLoaded", () => {
+  // Years worked calculation
   const startDate = new Date("2018-02-01");
   const currentDate = new Date();
 
@@ -122,4 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
   ).textContent = `I've been working as a software developer professionally for ${Math.floor(
     diffInYears
   )} years.`;
+
+  // Set current year in footer
+  const currentYear = new Date().getFullYear();
+  const copyrightElement = document.getElementById("copyright-year");
+
+  if (copyrightElement) {
+    copyrightElement.textContent = currentYear;
+  }
 });
