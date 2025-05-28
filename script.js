@@ -13,17 +13,27 @@ const talkingAnimations = {
 
 const transitionDelay = 500; // Delay before returning to idle image
 
+// Store the timeout ID so we can clear it
+let currentTimeout = null;
+
 document.querySelectorAll(".dialog-options a").forEach((link) => {
   link.addEventListener("click", () => {
     const targetId = link.getAttribute("href").substring(1);
     const animation = talkingAnimations[targetId];
 
     if (animation) {
+      // Clear any existing timeout to prevent conflicts
+      if (currentTimeout) {
+        clearTimeout(currentTimeout);
+        currentTimeout = null;
+      }
+
       talkingGif.src = animation.src + "?" + Date.now(); // Force refresh the GIF
 
-      setTimeout(() => {
+      currentTimeout = setTimeout(() => {
         talkingGif.src = idleImage;
-      }, animation.duration + transitionDelay); // Wait for GIF duration
+        currentTimeout = null;
+      }, animation.duration + transitionDelay);
     }
   });
 });
@@ -40,8 +50,8 @@ function resetToIdle() {
 // Function to set clicked state with backup timer
 function setClickedState() {
   talkingGif.src = clickedImage;
-  // Backup: reset after 5 seconds maximum
-  resetTimeout = setTimeout(resetToIdle, 10000);
+  // Backup: reset after 10 seconds maximum
+  resetTimeout = setTimeout(resetToIdle, 5000);
 }
 
 // Mouse events
