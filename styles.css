@@ -452,9 +452,9 @@ body[data-theme="amber"] #talking-head {
   content: "";
   position: absolute;
   bottom: -12px;
-  right: 38px;
+  right: 48px;
   width: 12px;
-  height: 12px;
+  height: 10px;
   background: var(--red);
   border-radius: 50%;
   box-shadow: 0 0 5px var(--red), 0 0 10px var(--red),
