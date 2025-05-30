@@ -370,6 +370,10 @@ header {
     margin-bottom: 0.5rem;
     margin-top: 1rem;
   }
+
+  h2 {
+    font-size: 2rem;
+  }
 }
 
 section {
