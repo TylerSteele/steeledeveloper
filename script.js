@@ -2,7 +2,7 @@ import idleImageUrl from "./assets/talking/idle.png";
 import clickedImageUrl from "./assets/talking/clicked.png";
 import introGifUrl from "./assets/talking/introduction.gif";
 import softwareGifUrl from "./assets/talking/software.gif";
-import presentationsGifUrl from "./assets/talking/presentations.gif";
+import workshopsGifUrl from "./assets/talking/workshops.gif";
 import funGifUrl from "./assets/talking/fun.gif";
 import contactGifUrl from "./assets/talking/contact.gif";
 
@@ -15,7 +15,7 @@ const clickedImage = clickedImageUrl;
 const talkingAnimations = {
   introduction: { src: introGifUrl, duration: 8000 },
   software: { src: softwareGifUrl, duration: 8170 },
-  presentations: { src: presentationsGifUrl, duration: 9500 },
+  workshops: { src: workshopsGifUrl, duration: 9500 },
   fun: { src: funGifUrl, duration: 6170 },
   contact: { src: contactGifUrl, duration: 2830 },
 };

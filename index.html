@@ -14,7 +14,7 @@
     <!-- Preload Images -->
     <link rel="preload" as="image" href="assets/talking/introduction.gif" />
     <link rel="preload" as="image" href="assets/talking/software.gif" />
-    <link rel="preload" as="image" href="assets/talking/presentations.gif" />
+    <link rel="preload" as="image" href="assets/talking/workshops.gif" />
     <link rel="preload" as="image" href="assets/talking/fun.gif" />
     <link rel="preload" as="image" href="assets/talking/contact.gif" />
     <link rel="preload" as="image" href="assets/talking/idle.png" />
@@ -152,9 +152,8 @@
             <a href="#software">[Software] What do you do around here?</a>
           </li>
           <li>
-            <a href="#presentations"
-              >[Presentations] Can you teach me how to survive in the
-              wasteland?</a
+            <a href="#workshops"
+              >[Workshops] Can you teach me how to survive in the wasteland?</a
             >
           </li>
           <li>
@@ -176,15 +175,17 @@
         <p>
           Hey, there! I'm Tyler Steele, a Software Engineer who’s passionate
           about human-centered design. I lead with compassion and empathy
-          because software is built by people, for people. I’m driven to create
-          technology that fosters a kinder, more connected world and I’m always
-          eager to tackle new challenges to help make that vision a reality.
+          because software is not just a solution to complex problems, it’s a
+          means to improve the lives of the people who use it. I’m driven to
+          create technology that fosters a kinder, more connected world and I’m
+          always eager to tackle new challenges to help make that vision a
+          reality.
         </p>
         <p>
           I created this portfolio to showcase my work and share a more personal
           side of myself. Its design pays homage to the
           <em class="colored-text">Fallout</em> ☢️ series (hopefully that's
-          obvious!). Despite the wasteland setting, I'm inspired by the
+          obvious to fans!). Despite the wasteland setting, I'm inspired by the
           protagonists' ability to have a lasting, positive impact on the world
           around them. I hope to do the same in this one.
         </p>
@@ -199,16 +200,6 @@
         <p>
           In that time, I've contributed extensively to the following projects.
         </p>
-        <h3>Metabolic Pathway Assessment Pipeline</h3>
-        <p>
-          I designed and built a serverless, scalable data pipeline capable of
-          processing thousands of metabolic pathway assessments concurrently
-          (<em>Python</em>, <em>Docker</em>, <em>Lambda</em>, <em>SQS</em>,
-          <em>PostgreSQL</em>, and <em>RDS</em>). The results are viewable in a
-          performant, responsive web app that strategically loads the data as
-          needed (<em>TypeScript</em>, <em>NestJS</em>, <em>Vue</em>, and
-          <em>EC2</em>).
-        </p>
         <h3>Platform for Structuring Machine Learning Input Data</h3>
         <p>
           LanzaTech's machine learning team needed structured, labeled
@@ -219,6 +210,19 @@
           product owner, I led a months-long initiative to establish a new set
           of label definitions, facilitating complex discussions with over 10
           scientists.
+        </p>
+        <h3>Metabolic Pathway Assessment Pipeline</h3>
+        <p>
+          At LanzaTech, we are interested in assessing bacteria's ability to
+          produce various target products. This means performing various
+          assessments of metabolic pathways (chains of reactions in the
+          bacteria's metabolism). I designed and built a serverless, scalable
+          data pipeline capable of processing thousands of metabolic pathway
+          assessments concurrently (<em>Python</em>, <em>Docker</em>,
+          <em>Lambda</em>, <em>SQS</em>, <em>PostgreSQL</em>, and <em>RDS</em>).
+          The results are viewable in a performant, responsive web app that
+          strategically loads the data as needed (<em>TypeScript</em>,
+          <em>NestJS</em>, <em>Vue</em>, and <em>EC2</em>).
         </p>
         <h3>National Insurer Quoting Experience</h3>
         <p>
@@ -232,35 +236,37 @@
           support multiple lines of business, and account for differing state
           laws.
         </p>
-        <h3>Service Management Web App</h3>
+        <h3>Technician Service Management Web App</h3>
         While at HomeX / Gem Plumbing and Heating, we were rolling out service
         plans for residential customers. The technicians needed a digital
         version of their paper sign-up form, so I worked with a tight-knit team
         to translate the paper form and complex plan structure to a web
         application interface (<em>JavaScript</em>, <em>NodeJS</em>,
-        <em>Meteor</em>, and <em>ReactJS</em>).
+        <em>Meteor</em>, and <em>ReactJS</em>). An important aspect of this was
+        making the process appealing to low-tech users who enjoyed the paper
+        process. This was the start of my interest in human-centered design.
         <h3>Poempath</h3>
         <p>
-          Okay, this one isn't a professional example. But I thought it would be
-          fun to share my
+          Here's a personal project I enjoyed putting together!
           <a href="https://github.com/TylerSteele/poempath" target="_blank"
-            >poetry recommendation webapp</a
-          >. It's like <em>Tinder</em> for poetry (swipe left and swipe right
-          interactions) that uses a recommendation engine to suggest poems that
-          people with similar tastes enjoy.
+            >Poempath</a
+          >
+          is a poetry recommendation app. Like <em>Tinder</em> for poetry (swipe
+          left and swipe right interactions), it uses a recommendation engine to
+          suggest poems that people with similar tastes enjoy.
         </p>
       </section>
 
-      <section id="presentations">
-        <h2>Presentations</h2>
+      <section id="workshops">
+        <h2>Workshops</h2>
         <p>
           No, I don't know much about wasteland survival. But I do know some
           things!
         </p>
-        <p>I've presented on a variety of topics, including:</p>
+        <p>I've led workshops on a variety of topics, including:</p>
         <h3>User Story Mapping</h3>
         <p>
-          In this presentation, I summarized Jeff Patton's book
+          In this workshop, I summarized Jeff Patton's book
           <a
             href="https://jpattonassociates.com/jeff-pattons-book-released-user-story-mapping/"
             target="_blank"
@@ -268,11 +274,21 @@
           >
           and provided a detailed walkthrough of how to create a user story map.
           I was delighted to see many projects embrace the idea in the months
-          following the presentation.
+          following the workshop.
+        </p>
+        <h3>Docker: a Port in All Storms</h3>
+        <p>
+          When working on the Metabolic Pathway Assessment Pipeline, I spent a
+          lot of time debugging failed docker builds. I realized there must be a
+          better way, so I mastered the docker fundamentals and debugging. To
+          solidify my understanding and distribute the knowledge, I decided to
+          share my learnings with the team. This lesson covered the background
+          (why Docker?), general overview (images, containers, volumes, etc.) as
+          well as practical tips for digging into containers.
         </p>
         <h3>Isn't it Pythonic?</h3>
         <p>
-          This Alanis Morissette-inspired presentation was a fun way to explore
+          This Alanis Morissette-inspired workshop was a fun way to explore
           common Python pitfalls. In order to empower attendees to avoid them
           and write better Python code, I shared a detailed breakdown of how
           Python works 'under the hood'.
@@ -280,15 +296,15 @@
         <h3>Terminal Coolness</h3>
         <p>
           It may seem trivial, but terminal customization can make development
-          more joyful and streamline common workflows. This presentation
-          scratches the surface of customization options and offers some
-          sensible defaults.
+          more joyful and streamline common workflows. This workshop scratches
+          the surface of customization options and offers some sensible
+          defaults.
         </p>
         <h3>Git Good</h3>
         <p>
           A recurring workshop of mine (I presented this at Amica and
           LanzaTech), this covers the basic git commands I've come to know and
-          love: <em>status</em>,<em>add</em>, <em>commit</em>, <em>push</em>,
+          love: <em>status</em>, <em>add</em>, <em>commit</em>, <em>push</em>,
           and of course <em>rebase</em>. I also cover pull request review best
           practices and do my best to instill a love for clean commit history.
         </p>
@@ -312,9 +328,9 @@
         <h3>Father of Two</h3>
         <p>
           It's cliché, but this is the most important part of my 'Personal'
-          section. Most of my free time and decisions are dedicated to creating
-          the best environment for my two sons. For now, this means a demanding
-          schedule of playing pretend, and I welcome the challenge!
+          section. Most of my energy is are dedicated to creating the best
+          environment for my two sons. For now, this means a demanding schedule
+          of playing pretend, and I welcome the challenge!
         </p>
         <h3>Dvorak Mechanical Keyboarder</h3>
         <p>
@@ -339,24 +355,26 @@
         <p>
           If I could, I'd spend every night at the theater. There's something so
           magical about the dedication and craft that comes together on stage
-          every night. Some of my favorite musicals are:
-          <em>Into the Woods</em>, <em>Les Misérables</em>,
+          each night. Some of my favorite musicals are:
+          <em>Company</em>, <em>Into the Woods</em>, <em>Les Misérables</em>,
           <em>Sweeney Todd</em>, <em>Hadestown</em>,
           <em>Little Shop of Horrors</em>, <em>Fun Home</em>,
           <em>Merrily We Roll Along</em> and
-          <em>Sunday in the Park with George</em>.
+          <em>Sunday in the Park with George</em>. Listen, Sondheim is the GOAT
+          for a reason :)
         </p>
         <h3>Vegan Teetotaler</h3>
         <p>
-          I know, I know. I must be fun at parties 🎉 In all seriousness, core
-          to my belief system is the notion that we must be accountable for our
-          individual actions and live our values. Modern society is well past
-          the point of needing animal products, and drugs and alcohol ultimately
-          serve to disengage the masses from the greatest issues affecting
-          humanity. If we focus more on the people and things that matter, we
-          can create a better world for ourselves and future generations. Still,
-          I'm a believer in progress over perfection, so I don't judge others
-          for their choices. I just hope to do the best I can.
+          I know, I know. I must be fun at parties 🎉 In all seriousness, my
+          belief system is founded on the notion that we must be accountable for
+          our individual actions in order to live our values. Modern society is
+          well past the point of needing animal products, and drugs and alcohol
+          ultimately serve to disengage the masses from the greatest issues
+          affecting humanity. If we focus more on the people and things (and
+          animals...) that matter, we can create a better world for ourselves
+          and future generations. Still, I'm a believer in progress over
+          perfection, so I don't judge others for their choices. I just strive
+          to do the best I can.
         </p>
         <h3>Devoted Podcaster</h3>
         <p>
@@ -370,23 +388,30 @@
           >, and
           <a href="https://reddeadreflection.buzzsprout.com/" target="_blank"
             >Red Dead Reflection</a
-          >. We'll be getting 'back in the saddle' whenever they decide to
-          release Grand Theft Auto VI.
+          >. Actually, Red Dead Reflection has over 100k lifetime listens, which
+          is sort of mind boggling. We'll be getting 'back in the saddle'
+          whenever they decide to release <em>Grand Theft Auto VI</em>.
         </p>
       </section>
 
       <section id="contact">
         <h2>Contact Me</h2>
         <p>
-          Well first of all, thank you for taking the time to visit my site!
-        </p>
-        <p>
-          If anything here resonates with you, or if you would simply like to
+          Well first of all, thank you for taking the time to visit my site! If
+          anything here resonates with you, or if you would simply like to
           connect, please feel free to email me at
           <a href="mailto:steeledeveloper@gmail.com"
             >steeledeveloper@gmail.com</a
-          >. I am open to opportunities and collaborations that align with my
-          values, so do not hesitate to reach out with ideas.
+          >.
+        </p>
+        <p>
+          I am willing to consider opportunities and collaborations that align
+          with my values and interests, so don't hesitate to reach out with
+          ideas. Also, feel free to connect on
+          <a href="https://www.linkedin.com/in/tyler-steele/" target="_blank"
+            >LinkedIn</a
+          >
+          🙂
         </p>
       </section>
     </div>
@@ -399,7 +424,7 @@
             <ul class="nav-links">
               <li><a href="#introduction">About Me</a></li>
               <li><a href="#software">Software</a></li>
-              <li><a href="#presentations">Presentations</a></li>
+              <li><a href="#workshops">Workshops</a></li>
               <li><a href="#fun">Personal</a></li>
               <li><a href="#contact">Contact Me</a></li>
             </ul>
