@@ -1,10 +1,9 @@
 /* Global styles */
 
 :root {
-  --accent-color: #aa9700;
-  --accent-color-muted: #887800;
+  --accent-color: #15d0d7;
   --dark: #1a1a1a;
-  --primary-color: #3cbf00;
+  --primary-color: #3fc700;
   --primary-color-bright: #55f200;
   --primary-color-dark: #204a01;
   --primary-color-glow: rgba(58, 156, 4, 0.5);
@@ -364,16 +363,43 @@ header {
 /* Section Styles */
 #sections {
   grid-area: sections;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
   h2,
   h3 {
     color: var(--primary-color-bright);
     margin-bottom: 0.5rem;
-    margin-top: 1rem;
   }
-
   h2 {
     font-size: 2rem;
+    margin-top: 0.25rem;
   }
+  h3 {
+    margin-top: 2.5rem;
+    border-top: 1px dashed var(--primary-color-dark);
+    padding-top: 1.5rem;
+  }
+  small {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.tech-text {
+  display: block;
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+  color: var(--primary-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.tech-text::before {
+  content: "↳ ";
+  color: var(--primary-color-dark);
+}
+.tech-text::after {
+  content: " ;";
+  color: var(--primary-color-dark);
 }
 
 section {

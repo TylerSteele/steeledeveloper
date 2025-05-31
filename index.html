@@ -200,51 +200,84 @@
         <p>
           In that time, I've contributed extensively to the following projects.
         </p>
+
         <h3>Platform for Structuring Machine Learning Input Data</h3>
         <p>
           LanzaTech's machine learning team needed structured, labeled
           fermentation data in order to train predictive models. I was
           responsible for the application that allowed fermentation scientists
-          to apply labels and metadata to runs (<em>Python</em>,
-          <em>Django</em>, <em>TypeScript</em>, <em>ReactJS</em>). As the
-          product owner, I led a months-long initiative to establish a new set
-          of label definitions, facilitating complex discussions with over 10
-          scientists.
+          to apply labels and metadata to runs.
         </p>
+        <p>
+          As the product owner, I led a months-long initiative to establish a
+          new set of label definitions, facilitating complex discussions with
+          over 10 scientists.
+        </p>
+        <em class="tech-text">Python / Django • TypeScript / ReactJS</em>
+
         <h3>Metabolic Pathway Assessment Pipeline</h3>
+
         <p>
           At LanzaTech, we are interested in assessing bacteria's ability to
           produce various target products. This means performing various
           assessments of metabolic pathways (chains of reactions in the
-          bacteria's metabolism). I designed and built a serverless, scalable
-          data pipeline capable of processing thousands of metabolic pathway
-          assessments concurrently (<em>Python</em>, <em>Docker</em>,
-          <em>Lambda</em>, <em>SQS</em>, <em>PostgreSQL</em>, and <em>RDS</em>).
-          The results are viewable in a performant, responsive web app that
-          strategically loads the data as needed (<em>TypeScript</em>,
-          <em>NestJS</em>, <em>Vue</em>, and <em>EC2</em>).
+          bacteria's metabolism).
         </p>
+        <p>
+          I designed and built a serverless, scalable data pipeline capable of
+          processing thousands of metabolic pathway assessments concurrently.
+          The pipeline is orchestrated by a manager that dispatches assessments
+          and ultimately stores the values in a read-optimized database.
+        </p>
+        <p>
+          The results are viewable in a responsive web app that lazy loads the
+          data for optimal performance.
+        </p>
+        <div>
+          <small>Serverless Function</small>
+          <em class="tech-text">Python / Docker • AWS Lambda / SQS / S3</em>
+        </div>
+        <div>
+          <small>Orchestrator and Database</small>
+          <em class="tech-text"
+            >PostgreSQL / RDS • Python / SQLAlchemy / Boto3</em
+          >
+        </div>
+        <div>
+          <small>Data Visualization</small>
+          <em class="tech-text">NodeJS / NestJS • TypeScript / Vue</em>
+        </div>
+
         <h3>National Insurer Quoting Experience</h3>
         <p>
           At Amica, I helped design and develop a beautiful, responsive
           <a href="https://www.amica.com/" target="_blank"
             >quoting experience</a
           >
-          for millions of users (<em>TypeScript</em>, <em>ReactJS</em>, and
-          <em>Redux</em>). This was a collaborative effort between developers,
-          designers, and subject matter experts to meet user expectations,
-          support multiple lines of business, and account for differing state
-          laws.
+          for millions of users.
         </p>
+        <p>
+          This was a collaborative effort between developers, designers, and
+          subject matter experts to meet user expectations, support multiple
+          lines of business, and account for differing state laws.
+        </p>
+        <em class="tech-text">TypeScript / ReactJS / Redux</em>
+
         <h3>Technician Service Management Web App</h3>
-        At HomeX / Gem Plumbing and Heating, we were rolling out service plans
-        for residential customers. The technicians needed a digital version of
-        their paper sign-up form, so I worked with a tight-knit team to
-        translate the paper form and complex plan structure to a web application
-        interface (<em>JavaScript</em>, <em>NodeJS</em>, <em>Meteor</em>, and
-        <em>ReactJS</em>). An important aspect of this was making the process
-        appealing to low-tech users who enjoyed the paper process. This was the
-        start of my interest in human-centered design.
+        <p>
+          At HomeX / Gem Plumbing and Heating, we were rolling out service plans
+          for residential customers. The technicians needed a digital version of
+          their paper sign-up form, so I worked with a tight-knit team to
+          translate the paper form and complex plan structure to a web
+          application interface.
+        </p>
+        <p>
+          An important aspect of this was making the process appealing to
+          low-tech users who enjoyed the paper process. This was the start of my
+          interest in human-centered design.
+        </p>
+        <em class="tech-text">NodeJS / Meteor • JavaScript / ReactJS</em>
+
         <h3>Poempath</h3>
         <p>
           Here's a personal project I enjoyed putting together!
@@ -252,9 +285,13 @@
             >Poempath</a
           >
           is a poetry recommendation app. Imagine a <em>Tinder</em> for poetry
-          (swipe left and swipe right interactions). It uses a recommendation
-          engine to suggest poems that people with similar tastes enjoy.
+          (swipe left and swipe right interactions).
         </p>
+        <p>
+          It uses a recommendation engine to suggest poems that people with
+          similar tastes enjoy.
+        </p>
+        <em class="tech-text">MongoDB / NodeJS / Koa • JavaScript / Vue</em>
       </section>
 
       <section id="workshops">
