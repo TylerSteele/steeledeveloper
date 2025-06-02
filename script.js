@@ -1,5 +1,7 @@
-import idleImageUrl from "./assets/talking/idle.png";
-import clickedImageUrl from "./assets/talking/clicked.png";
+import idleGif1Url from "./assets/talking/idle.gif";
+import idleGif2Url from "./assets/talking/idle-alt.gif";
+import idleGif3Url from "./assets/talking/idle-alt.gif";
+import clickedGifUrl from "./assets/talking/clicked.gif";
 import introGifUrl from "./assets/talking/introduction.gif";
 import softwareGifUrl from "./assets/talking/software.gif";
 import workshopsGifUrl from "./assets/talking/workshops.gif";
@@ -9,8 +11,6 @@ import contactGifUrl from "./assets/talking/contact.gif";
 // Talking Head animation variables
 const talkingGif = document.getElementById("talking-gif");
 const talkingHeadContainer = document.getElementById("talking-head");
-const idleImage = idleImageUrl;
-const clickedImage = clickedImageUrl;
 
 const talkingAnimations = {
   introduction: { src: introGifUrl, duration: 8000 },
@@ -20,13 +20,20 @@ const talkingAnimations = {
   contact: { src: contactGifUrl, duration: 2830 },
 };
 
+const idleAnimations = [idleGif1Url, idleGif2Url, idleGif3Url];
+
+function getRandomIdleGif() {
+  const index = Math.floor(Math.random() * idleAnimations.length);
+  return idleAnimations[index];
+}
+
 const transitionDelay = 500;
 let currentTimeout = null;
 let resetTimeout = null;
 
 // Utility functions
 function resetToIdle() {
-  talkingGif.src = idleImage;
+  talkingGif.src = getRandomIdleGif();
   if (resetTimeout) {
     clearTimeout(resetTimeout);
     resetTimeout = null;
@@ -34,8 +41,8 @@ function resetToIdle() {
 }
 
 function setClickedState() {
-  talkingGif.src = clickedImage;
-  resetTimeout = setTimeout(resetToIdle, 5000);
+  talkingGif.src = clickedGifUrl;
+  resetTimeout = setTimeout(resetToIdle, 10000);
 }
 
 // Single DOMContentLoaded event listener
@@ -55,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         talkingGif.src = animation.src + "?" + Date.now();
 
         currentTimeout = setTimeout(() => {
-          talkingGif.src = idleImage;
+          talkingGif.src = getRandomIdleGif();
           currentTimeout = null;
         }, animation.duration + transitionDelay);
       }
