@@ -59,12 +59,25 @@ document.addEventListener("DOMContentLoaded", () => {
           currentTimeout = null;
         }
 
-        talkingGif.src = animation.src + "?" + Date.now();
+        // Add transition class for animation effects
+        talkingHeadContainer.classList.add("gif-transition");
+
+        // Small delay to allow transition effects to show before changing GIF
+        setTimeout(() => {
+          talkingGif.src = animation.src + "?" + Date.now();
+        }, 100);
 
         currentTimeout = setTimeout(() => {
-          talkingGif.src = getRandomIdleGif();
+          talkingGif.src = idleImage;
+          // Remove transition class after animation completes
+          talkingHeadContainer.classList.remove("gif-transition");
           currentTimeout = null;
         }, animation.duration + transitionDelay);
+
+        // Remove transition class after initial effect
+        setTimeout(() => {
+          talkingHeadContainer.classList.remove("gif-transition");
+        }, 800);
       }
     });
   });
