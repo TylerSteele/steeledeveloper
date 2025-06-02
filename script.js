@@ -164,6 +164,16 @@ document.addEventListener("DOMContentLoaded", () => {
       this.classList.add("clicked");
     });
   });
+  // === QUOTE ANIMATION ===
+  let currentQuote = 0;
+  const quoteRoll = document.querySelector(".quote-roll");
+
+  if (quoteRoll) {
+    setInterval(() => {
+      currentQuote = (currentQuote + 1) % 3;
+      quoteRoll.className = `quote-roll slide-${currentQuote}`;
+    }, 7000);
+  }
 });
 
 // Global event listeners that don't need DOM to be ready
