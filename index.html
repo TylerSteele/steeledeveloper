@@ -27,439 +27,447 @@
   </head>
 
   <body>
-    <div id="header-and-controls">
-      <!-- Header -->
-      <header>
-        <h1 id="name">Tyler Steele</h1>
-        <p id="job-title">Software Engineer</p>
-      </header>
+    <div class="content-wrapper">
+      <div class="scroll-indicator">↓</div>
+      <div id="header-and-controls">
+        <!-- Header -->
+        <header>
+          <h1 id="name">Tyler Steele</h1>
+          <p id="job-title">Software Engineer</p>
+        </header>
 
-      <!-- Controls -->
-      <div id="controls">
-        <div id="toggle-wrapper">
-          <!-- Left lightbulb (Amber) -->
-          <svg
-            class="lightbulb-icon lightbulb-left active"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.4 1-1v-1H9v1z"
-              stroke="currentColor"
-              stroke-width="2"
+        <!-- Controls -->
+        <div id="controls">
+          <div id="toggle-wrapper">
+            <!-- Left lightbulb (Amber) -->
+            <svg
+              class="lightbulb-icon lightbulb-left active"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
               fill="none"
-            />
-            <path
-              d="M9 19h6v1H9v-1z"
-              stroke="currentColor"
-              stroke-width="1"
-              fill="none"
-            />
-            <path
-              d="M9.5 17h5v1h-5v-1z"
-              stroke="currentColor"
-              stroke-width="1"
-              fill="none"
-            />
-            <path
-              d="M12 2C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17h8v-2.3c1.8-1.2 3-3.3 3-5.7 0-3.9-3.1-7-7-7z"
-              stroke="currentColor"
-              stroke-width="2"
-              fill="none"
-            />
-            <path
-              d="M10 8l4 4M14 8l-4 4"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-          </svg>
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.4 1-1v-1H9v1z"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+              />
+              <path
+                d="M9 19h6v1H9v-1z"
+                stroke="currentColor"
+                stroke-width="1"
+                fill="none"
+              />
+              <path
+                d="M9.5 17h5v1h-5v-1z"
+                stroke="currentColor"
+                stroke-width="1"
+                fill="none"
+              />
+              <path
+                d="M12 2C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17h8v-2.3c1.8-1.2 3-3.3 3-5.7 0-3.9-3.1-7-7-7z"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+              />
+              <path
+                d="M10 8l4 4M14 8l-4 4"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+            </svg>
 
-          <!-- Toggle Container -->
-          <div
-            id="color-toggle"
-            class="toggle-container"
-            role="switch"
-            aria-checked="false"
-            tabindex="0"
-            aria-label="Theme toggle: Switch between amber and green. Amber mode active"
-          >
-            <div class="switch"></div>
-            <div class="toggle-label">Amber</div>
-            <div class="toggle-label">Green</div>
+            <!-- Toggle Container -->
+            <div
+              id="color-toggle"
+              class="toggle-container"
+              role="switch"
+              aria-checked="false"
+              tabindex="0"
+              aria-label="Theme toggle: Switch between amber and green. Amber mode active"
+            >
+              <div class="switch"></div>
+              <div class="toggle-label">Amber</div>
+              <div class="toggle-label">Green</div>
+            </div>
+
+            <!-- Right lightbulb (Green) -->
+            <svg
+              class="lightbulb-icon lightbulb-right"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.4 1-1v-1H9v1z"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+              />
+              <path
+                d="M9 19h6v1H9v-1z"
+                stroke="currentColor"
+                stroke-width="1"
+                fill="none"
+              />
+              <path
+                d="M9.5 17h5v1h-5v-1z"
+                stroke="currentColor"
+                stroke-width="1"
+                fill="none"
+              />
+              <path
+                d="M12 2C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17h8v-2.3c1.8-1.2 3-3.3 3-5.7 0-3.9-3.1-7-7-7z"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+              />
+              <path
+                d="M10 8l4 4M14 8l-4 4"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Talking Head -->
+      <div id="talking-head">
+        <img
+          id="talking-gif"
+          src="assets/talking/idle-alt.gif"
+          alt="Talking Head"
+        />
+        <div class="static-overlay"></div>
+        <div class="intense-scanlines"></div>
+        <div class="scanlines">
+          <div class="moving-line"></div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="dialog-container">
+        <nav class="dialog">
+          <ul class="dialog-options">
+            <li>
+              <a href="#introduction">[About Me] Who are you?</a>
+            </li>
+            <li>
+              <a href="#software">[Software] What do you do around here?</a>
+            </li>
+            <li>
+              <a href="#workshops"
+                >[Workshops] Can you teach me how to survive in the
+                wasteland?</a
+              >
+            </li>
+            <li>
+              <a href="#fun">[Personal] Tell me more about yourself.</a>
+            </li>
+            <li>
+              <a href="#contact"
+                >[Contact Me] There's something else I wanted to discuss.</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Sections -->
+      <div id="sections">
+        <section id="introduction">
+          <h2>About Me</h2>
+          <p>
+            Hey, there! I'm Tyler Steele, a Software Engineer who’s passionate
+            about human-centered design. I lead with compassion and empathy
+            because software is not just a solution to complex problems, it’s a
+            means to improve the lives of the people who use it. I’m driven to
+            create technology that fosters a kinder, more connected world and
+            I’m always eager to tackle new challenges to help make that vision a
+            reality.
+          </p>
+          <p>
+            I created this portfolio to showcase my work and share a more
+            personal side of myself. Its design pays homage to the
+            <em class="colored-text">Fallout</em> ☢️ series (hopefully that's
+            obvious to fans!). Despite the wasteland setting, I'm inspired by
+            the protagonists' ability to have a lasting, positive impact on the
+            world around them. I hope to do the same in this one.
+          </p>
+        </section>
+
+        <section id="software">
+          <h2>Software</h2>
+
+          <p id="years-worked-text">
+            I've been working as a software developer professionally for years.
+          </p>
+          <p>
+            In that time, I've contributed extensively to the following
+            projects.
+          </p>
+
+          <h3>Platform for Structuring Machine Learning Input Data</h3>
+          <p>
+            LanzaTech's machine learning team needed structured, labeled
+            fermentation data in order to train predictive models. I was
+            responsible for the application that allowed fermentation scientists
+            to apply labels and metadata to runs.
+          </p>
+          <p>
+            As the product owner, I led a months-long initiative to establish a
+            new set of label definitions, facilitating complex discussions with
+            over 10 scientists.
+          </p>
+          <em class="tech-text">Python / Django • TypeScript / ReactJS</em>
+
+          <h3>Metabolic Pathway Assessment Pipeline</h3>
+
+          <p>
+            At LanzaTech, we are interested in assessing bacteria's ability to
+            produce various target products. This means performing various
+            assessments of metabolic pathways (chains of reactions in the
+            bacteria's metabolism).
+          </p>
+          <p>
+            I designed and built a serverless, scalable data pipeline capable of
+            processing thousands of metabolic pathway assessments concurrently.
+            The pipeline is orchestrated by a manager that dispatches
+            assessments and ultimately stores the values in a read-optimized
+            database.
+          </p>
+          <p>
+            The results are viewable in a responsive web app that lazy loads the
+            data for optimal performance.
+          </p>
+          <div>
+            <small>Serverless Function</small>
+            <em class="tech-text">Python / Docker • AWS Lambda / SQS / S3</em>
+          </div>
+          <div>
+            <small>Orchestrator and Database</small>
+            <em class="tech-text"
+              >PostgreSQL / RDS • Python / SQLAlchemy / Boto3</em
+            >
+          </div>
+          <div>
+            <small>Data Visualization</small>
+            <em class="tech-text">NodeJS / NestJS • TypeScript / Vue</em>
           </div>
 
-          <!-- Right lightbulb (Green) -->
-          <svg
-            class="lightbulb-icon lightbulb-right"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.4 1-1v-1H9v1z"
-              stroke="currentColor"
-              stroke-width="2"
-              fill="none"
-            />
-            <path
-              d="M9 19h6v1H9v-1z"
-              stroke="currentColor"
-              stroke-width="1"
-              fill="none"
-            />
-            <path
-              d="M9.5 17h5v1h-5v-1z"
-              stroke="currentColor"
-              stroke-width="1"
-              fill="none"
-            />
-            <path
-              d="M12 2C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17h8v-2.3c1.8-1.2 3-3.3 3-5.7 0-3.9-3.1-7-7-7z"
-              stroke="currentColor"
-              stroke-width="2"
-              fill="none"
-            />
-            <path
-              d="M10 8l4 4M14 8l-4 4"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-
-    <!-- Talking Head -->
-    <div id="talking-head">
-      <img
-        id="talking-gif"
-        src="assets/talking/idle-alt.gif"
-        alt="Talking Head"
-      />
-      <div class="static-overlay"></div>
-      <div class="intense-scanlines"></div>
-      <div class="scanlines">
-        <div class="moving-line"></div>
-      </div>
-    </div>
-
-    <!-- Navigation -->
-    <div class="dialog-container">
-      <nav class="dialog">
-        <ul class="dialog-options">
-          <li>
-            <a href="#introduction">[About Me] Who are you?</a>
-          </li>
-          <li>
-            <a href="#software">[Software] What do you do around here?</a>
-          </li>
-          <li>
-            <a href="#workshops"
-              >[Workshops] Can you teach me how to survive in the wasteland?</a
+          <h3>National Insurer Quoting Experience</h3>
+          <p>
+            At Amica, I helped design and develop a beautiful, responsive
+            <a href="https://www.amica.com/" target="_blank"
+              >quoting experience</a
             >
-          </li>
-          <li>
-            <a href="#fun">[Personal] Tell me more about yourself.</a>
-          </li>
-          <li>
-            <a href="#contact"
-              >[Contact Me] There's something else I wanted to discuss.</a
+            for millions of users.
+          </p>
+          <p>
+            This was a collaborative effort between developers, designers, and
+            subject matter experts to meet user expectations, support multiple
+            lines of business, and account for differing state laws.
+          </p>
+          <em class="tech-text">TypeScript / ReactJS / Redux</em>
+
+          <h3>Technician Service Management Web App</h3>
+          <p>
+            At HomeX / Gem Plumbing and Heating, we were rolling out service
+            plans for residential customers. The technicians needed a digital
+            version of their paper sign-up form, so I worked with a tight-knit
+            team to translate the paper form and complex plan structure to a web
+            application interface.
+          </p>
+          <p>
+            An important aspect of this was making the process appealing to
+            low-tech users who enjoyed the paper process. This was the start of
+            my interest in human-centered design.
+          </p>
+          <em class="tech-text">NodeJS / Meteor • JavaScript / ReactJS</em>
+
+          <h3>Poempath</h3>
+          <p>
+            Here's a personal project I enjoyed putting together!
+            <a href="https://github.com/TylerSteele/poempath" target="_blank"
+              >Poempath</a
             >
-          </li>
-        </ul>
-      </nav>
-    </div>
+            is a poetry recommendation app. Imagine a <em>Tinder</em> for poetry
+            (swipe left and swipe right interactions).
+          </p>
+          <p>
+            It uses a recommendation engine to suggest poems that people with
+            similar tastes enjoy.
+          </p>
+          <em class="tech-text">MongoDB / NodeJS / Koa • JavaScript / Vue</em>
+        </section>
 
-    <!-- Sections -->
-    <div id="sections">
-      <section id="introduction">
-        <h2>About Me</h2>
-        <p>
-          Hey, there! I'm Tyler Steele, a Software Engineer who’s passionate
-          about human-centered design. I lead with compassion and empathy
-          because software is not just a solution to complex problems, it’s a
-          means to improve the lives of the people who use it. I’m driven to
-          create technology that fosters a kinder, more connected world and I’m
-          always eager to tackle new challenges to help make that vision a
-          reality.
-        </p>
-        <p>
-          I created this portfolio to showcase my work and share a more personal
-          side of myself. Its design pays homage to the
-          <em class="colored-text">Fallout</em> ☢️ series (hopefully that's
-          obvious to fans!). Despite the wasteland setting, I'm inspired by the
-          protagonists' ability to have a lasting, positive impact on the world
-          around them. I hope to do the same in this one.
-        </p>
-      </section>
+        <section id="workshops">
+          <h2>Workshops</h2>
+          <p>
+            No, I don't know much about wasteland survival, but I do know some
+            things!
+          </p>
+          <p>I've led workshops on a variety of topics, including:</p>
+          <h3>User Story Mapping</h3>
+          <p>
+            In this workshop, I summarized Jeff Patton's book
+            <a
+              href="https://jpattonassociates.com/jeff-pattons-book-released-user-story-mapping/"
+              target="_blank"
+              >User Story Mapping</a
+            >
+            and provided a detailed walkthrough of how to create a user story
+            map. I was delighted to see many projects embrace the idea in the
+            months following the workshop.
+          </p>
+          <h3>Docker: a Port in All Storms</h3>
+          <p>
+            When working on the Metabolic Pathway Assessment Pipeline, I spent a
+            lot of time debugging failed docker builds. I realized there must be
+            a better way, so I mastered the docker fundamentals and debugging.
+            To solidify my understanding and distribute the knowledge, I decided
+            to share my learnings with the team. This lesson covered the
+            background (why Docker?), general overview (images, containers,
+            volumes, etc.) as well as practical tips for digging into
+            containers.
+          </p>
+          <h3>Isn't it Pythonic?</h3>
+          <p>
+            This Alanis Morissette-inspired workshop was a fun way to explore
+            common Python pitfalls. In order to empower attendees to avoid them
+            and write better Python code, I shared a detailed breakdown of how
+            Python works 'under the hood'.
+          </p>
+          <h3>Terminal Coolness</h3>
+          <p>
+            It may seem trivial, but terminal customization can make development
+            more joyful and streamline common workflows. This workshop scratches
+            the surface of customization options and offers some sensible
+            defaults.
+          </p>
+          <h3>Git Good</h3>
+          <p>
+            A recurring workshop of mine (I presented this at Amica and
+            LanzaTech), this covers the basic git commands I've come to know and
+            love: <em>status</em>, <em>add</em>, <em>commit</em>, <em>push</em>,
+            and of course <em>rebase</em>. I also cover pull request review best
+            practices and do my best to instill a love for clean commit history.
+          </p>
+          <h3>CSS Flex and Grid Aren't so Spooky</h3>
+          <p>
+            In this
+            <a
+              href="https://github.com/TylerSteele/flex-and-grid-exercises"
+              target="_blank"
+              >halloween themed lesson</a
+            >, I demystified CSS flex and grid in an attempt to encourage more
+            use of it at Amica. I succeeded in my goal and we had fun stacking
+            pumpkins along the way!
+          </p>
+        </section>
 
-      <section id="software">
-        <h2>Software</h2>
+        <section id="fun">
+          <h2>Personal</h2>
+          <p>Thank you for your interest!</p>
+          <p>Here's what makes me <em>me</em>.</p>
+          <h3>Father of Two</h3>
+          <p>
+            It's cliché, but this is the most important part of my 'Personal'
+            section. Most of my energy is dedicated to creating the best
+            environment for my two sons. For now, this means a demanding
+            schedule of playing pretend, and I welcome the challenge!
+          </p>
+          <h3>Dvorak Mechanical Keyboarder</h3>
+          <p>
+            A few years ago, I got into mechanical keyboards. In order to avoid
+            falling down the rabbit hole, I set my sights on a singular vision
+            and achieved it. I then promptly unsubscribed from all the keyboard
+            subreddits and YouTube channels 😅 I also took the opportunity to
+            relearn typing in Dvorak and break old habits. If you use a computer
+            and someone left it in 'Dvorak' mode, that may have been me...
+          </p>
+          <h3>Recovering Gamer</h3>
+          <p>
+            I'm currently on a gaming hiatus, trying to think more critically
+            about how I'm spending my time (especially now that I'm a dad).
+            However, I'll always have a deep love for interactive fiction and
+            the power a virtual world can hold over you. Some of my favorite
+            games are
+            <em>Fallout: New Vegas</em> (duh), <em>XCOM 2</em>,
+            <em>Red Dead Redemption 2</em>, <em>Into the Breach</em>,
+            <em>The Beginner's Guide</em>, and <em>Inscryption</em>.
+          </p>
+          <h3>Theater Lover</h3>
+          <p>
+            If I could, I'd spend every night at the theater. There's something
+            so magical about the dedication and craft that comes together on
+            stage each night. Some of my favorite musicals are:
+            <em>Company</em>, <em>Into the Woods</em>, <em>Les Misérables</em>,
+            <em>Sweeney Todd</em>, <em>Hadestown</em>,
+            <em>Little Shop of Horrors</em>, <em>Fun Home</em>,
+            <em>Merrily We Roll Along</em> and
+            <em>Sunday in the Park with George</em>. Listen, Sondheim is the
+            GOAT for a reason :)
+          </p>
+          <h3>Vegan Teetotaler</h3>
+          <p>
+            I know, I know. I must be fun at parties 🎉 In all seriousness, my
+            belief system is founded on the notion that we must be accountable
+            for our individual actions in order to live our values. I believe
+            modern society has moved past needing animal products, and I find
+            that drugs and alcohol can disengage us from addressing the most
+            important issues affecting humanity. If we focus more on the people
+            and things (and animals...) that matter, we can create a better
+            world for ourselves and future generations. Still, I'm a believer in
+            progress over perfection, so I don't judge others for their choices.
+            I just strive to do the best I can.
+          </p>
+          <h3>Devoted Podcaster</h3>
+          <p>
+            My best friend Brevin and I have co-hosted three successful (by our
+            metrics 🙂) podcasts:
+            <a href="https://computable.buzzsprout.com/" target="_blank"
+              >Computable</a
+            >,
+            <a href="https://muchtodo.buzzsprout.com/" target="_blank"
+              >Much To Do About Something</a
+            >, and
+            <a href="https://reddeadreflection.buzzsprout.com/" target="_blank"
+              >Red Dead Reflection</a
+            >. Actually, Red Dead Reflection has over 100k lifetime listens,
+            which is sort of mind boggling. We'll be getting 'back in the
+            saddle' whenever <em>Grand Theft Auto VI</em> finally releases.
+          </p>
+        </section>
 
-        <p id="years-worked-text">
-          I've been working as a software developer professionally for years.
-        </p>
-        <p>
-          In that time, I've contributed extensively to the following projects.
-        </p>
-
-        <h3>Platform for Structuring Machine Learning Input Data</h3>
-        <p>
-          LanzaTech's machine learning team needed structured, labeled
-          fermentation data in order to train predictive models. I was
-          responsible for the application that allowed fermentation scientists
-          to apply labels and metadata to runs.
-        </p>
-        <p>
-          As the product owner, I led a months-long initiative to establish a
-          new set of label definitions, facilitating complex discussions with
-          over 10 scientists.
-        </p>
-        <em class="tech-text">Python / Django • TypeScript / ReactJS</em>
-
-        <h3>Metabolic Pathway Assessment Pipeline</h3>
-
-        <p>
-          At LanzaTech, we are interested in assessing bacteria's ability to
-          produce various target products. This means performing various
-          assessments of metabolic pathways (chains of reactions in the
-          bacteria's metabolism).
-        </p>
-        <p>
-          I designed and built a serverless, scalable data pipeline capable of
-          processing thousands of metabolic pathway assessments concurrently.
-          The pipeline is orchestrated by a manager that dispatches assessments
-          and ultimately stores the values in a read-optimized database.
-        </p>
-        <p>
-          The results are viewable in a responsive web app that lazy loads the
-          data for optimal performance.
-        </p>
-        <div>
-          <small>Serverless Function</small>
-          <em class="tech-text">Python / Docker • AWS Lambda / SQS / S3</em>
-        </div>
-        <div>
-          <small>Orchestrator and Database</small>
-          <em class="tech-text"
-            >PostgreSQL / RDS • Python / SQLAlchemy / Boto3</em
-          >
-        </div>
-        <div>
-          <small>Data Visualization</small>
-          <em class="tech-text">NodeJS / NestJS • TypeScript / Vue</em>
-        </div>
-
-        <h3>National Insurer Quoting Experience</h3>
-        <p>
-          At Amica, I helped design and develop a beautiful, responsive
-          <a href="https://www.amica.com/" target="_blank"
-            >quoting experience</a
-          >
-          for millions of users.
-        </p>
-        <p>
-          This was a collaborative effort between developers, designers, and
-          subject matter experts to meet user expectations, support multiple
-          lines of business, and account for differing state laws.
-        </p>
-        <em class="tech-text">TypeScript / ReactJS / Redux</em>
-
-        <h3>Technician Service Management Web App</h3>
-        <p>
-          At HomeX / Gem Plumbing and Heating, we were rolling out service plans
-          for residential customers. The technicians needed a digital version of
-          their paper sign-up form, so I worked with a tight-knit team to
-          translate the paper form and complex plan structure to a web
-          application interface.
-        </p>
-        <p>
-          An important aspect of this was making the process appealing to
-          low-tech users who enjoyed the paper process. This was the start of my
-          interest in human-centered design.
-        </p>
-        <em class="tech-text">NodeJS / Meteor • JavaScript / ReactJS</em>
-
-        <h3>Poempath</h3>
-        <p>
-          Here's a personal project I enjoyed putting together!
-          <a href="https://github.com/TylerSteele/poempath" target="_blank"
-            >Poempath</a
-          >
-          is a poetry recommendation app. Imagine a <em>Tinder</em> for poetry
-          (swipe left and swipe right interactions).
-        </p>
-        <p>
-          It uses a recommendation engine to suggest poems that people with
-          similar tastes enjoy.
-        </p>
-        <em class="tech-text">MongoDB / NodeJS / Koa • JavaScript / Vue</em>
-      </section>
-
-      <section id="workshops">
-        <h2>Workshops</h2>
-        <p>
-          No, I don't know much about wasteland survival, but I do know some
-          things!
-        </p>
-        <p>I've led workshops on a variety of topics, including:</p>
-        <h3>User Story Mapping</h3>
-        <p>
-          In this workshop, I summarized Jeff Patton's book
-          <a
-            href="https://jpattonassociates.com/jeff-pattons-book-released-user-story-mapping/"
-            target="_blank"
-            >User Story Mapping</a
-          >
-          and provided a detailed walkthrough of how to create a user story map.
-          I was delighted to see many projects embrace the idea in the months
-          following the workshop.
-        </p>
-        <h3>Docker: a Port in All Storms</h3>
-        <p>
-          When working on the Metabolic Pathway Assessment Pipeline, I spent a
-          lot of time debugging failed docker builds. I realized there must be a
-          better way, so I mastered the docker fundamentals and debugging. To
-          solidify my understanding and distribute the knowledge, I decided to
-          share my learnings with the team. This lesson covered the background
-          (why Docker?), general overview (images, containers, volumes, etc.) as
-          well as practical tips for digging into containers.
-        </p>
-        <h3>Isn't it Pythonic?</h3>
-        <p>
-          This Alanis Morissette-inspired workshop was a fun way to explore
-          common Python pitfalls. In order to empower attendees to avoid them
-          and write better Python code, I shared a detailed breakdown of how
-          Python works 'under the hood'.
-        </p>
-        <h3>Terminal Coolness</h3>
-        <p>
-          It may seem trivial, but terminal customization can make development
-          more joyful and streamline common workflows. This workshop scratches
-          the surface of customization options and offers some sensible
-          defaults.
-        </p>
-        <h3>Git Good</h3>
-        <p>
-          A recurring workshop of mine (I presented this at Amica and
-          LanzaTech), this covers the basic git commands I've come to know and
-          love: <em>status</em>, <em>add</em>, <em>commit</em>, <em>push</em>,
-          and of course <em>rebase</em>. I also cover pull request review best
-          practices and do my best to instill a love for clean commit history.
-        </p>
-        <h3>CSS Flex and Grid Aren't so Spooky</h3>
-        <p>
-          In this
-          <a
-            href="https://github.com/TylerSteele/flex-and-grid-exercises"
-            target="_blank"
-            >halloween themed lesson</a
-          >, I demystified CSS flex and grid in an attempt to encourage more use
-          of it at Amica. I succeeded in my goal and we had fun stacking
-          pumpkins along the way!
-        </p>
-      </section>
-
-      <section id="fun">
-        <h2>Personal</h2>
-        <p>Thank you for your interest!</p>
-        <p>Here's what makes me <em>me</em>.</p>
-        <h3>Father of Two</h3>
-        <p>
-          It's cliché, but this is the most important part of my 'Personal'
-          section. Most of my energy is dedicated to creating the best
-          environment for my two sons. For now, this means a demanding schedule
-          of playing pretend, and I welcome the challenge!
-        </p>
-        <h3>Dvorak Mechanical Keyboarder</h3>
-        <p>
-          A few years ago, I got into mechanical keyboards. In order to avoid
-          falling down the rabbit hole, I set my sights on a singular vision and
-          achieved it. I then promptly unsubscribed from all the keyboard
-          subreddits and YouTube channels 😅 I also took the opportunity to
-          relearn typing in Dvorak and break old habits. If you use a computer
-          and someone left it in 'Dvorak' mode, that may have been me...
-        </p>
-        <h3>Recovering Gamer</h3>
-        <p>
-          I'm currently on a gaming hiatus, trying to think more critically
-          about how I'm spending my time (especially now that I'm a dad).
-          However, I'll always have a deep love for interactive fiction and the
-          power a virtual world can hold over you. Some of my favorite games are
-          <em>Fallout: New Vegas</em> (duh), <em>XCOM 2</em>,
-          <em>Red Dead Redemption 2</em>, <em>Into the Breach</em>,
-          <em>The Beginner's Guide</em>, and <em>Inscryption</em>.
-        </p>
-        <h3>Theater Lover</h3>
-        <p>
-          If I could, I'd spend every night at the theater. There's something so
-          magical about the dedication and craft that comes together on stage
-          each night. Some of my favorite musicals are:
-          <em>Company</em>, <em>Into the Woods</em>, <em>Les Misérables</em>,
-          <em>Sweeney Todd</em>, <em>Hadestown</em>,
-          <em>Little Shop of Horrors</em>, <em>Fun Home</em>,
-          <em>Merrily We Roll Along</em> and
-          <em>Sunday in the Park with George</em>. Listen, Sondheim is the GOAT
-          for a reason :)
-        </p>
-        <h3>Vegan Teetotaler</h3>
-        <p>
-          I know, I know. I must be fun at parties 🎉 In all seriousness, my
-          belief system is founded on the notion that we must be accountable for
-          our individual actions in order to live our values. I believe modern
-          society has moved past needing animal products, and I find that drugs
-          and alcohol can disengage us from addressing the most important issues
-          affecting humanity. If we focus more on the people and things (and
-          animals...) that matter, we can create a better world for ourselves
-          and future generations. Still, I'm a believer in progress over
-          perfection, so I don't judge others for their choices. I just strive
-          to do the best I can.
-        </p>
-        <h3>Devoted Podcaster</h3>
-        <p>
-          My best friend Brevin and I have co-hosted three successful (by our
-          metrics 🙂) podcasts:
-          <a href="https://computable.buzzsprout.com/" target="_blank"
-            >Computable</a
-          >,
-          <a href="https://muchtodo.buzzsprout.com/" target="_blank"
-            >Much To Do About Something</a
-          >, and
-          <a href="https://reddeadreflection.buzzsprout.com/" target="_blank"
-            >Red Dead Reflection</a
-          >. Actually, Red Dead Reflection has over 100k lifetime listens, which
-          is sort of mind boggling. We'll be getting 'back in the saddle'
-          whenever <em>Grand Theft Auto VI</em> finally releases.
-        </p>
-      </section>
-
-      <section id="contact">
-        <h2>Contact Me</h2>
-        <p>
-          Well first of all, thank you for taking the time to visit my site! If
-          anything here resonates with you, or if you would simply like to
-          connect, please feel free to email me at
-          <a href="mailto:steeledeveloper@gmail.com"
-            >steeledeveloper@gmail.com</a
-          >.
-        </p>
-        <p>
-          I am willing to consider opportunities and collaborations that align
-          with my values and interests, so don't hesitate to reach out with
-          ideas. Also, feel free to connect on
-          <a href="https://www.linkedin.com/in/tyler-steele/" target="_blank"
-            >LinkedIn</a
-          >
-          🙂
-        </p>
-      </section>
+        <section id="contact">
+          <h2>Contact Me</h2>
+          <p>
+            Well first of all, thank you for taking the time to visit my site!
+            If anything here resonates with you, or if you would simply like to
+            connect, please feel free to email me at
+            <a href="mailto:steeledeveloper@gmail.com"
+              >steeledeveloper@gmail.com</a
+            >.
+          </p>
+          <p>
+            I am willing to consider opportunities and collaborations that align
+            with my values and interests, so don't hesitate to reach out with
+            ideas. Also, feel free to connect on
+            <a href="https://www.linkedin.com/in/tyler-steele/" target="_blank"
+              >LinkedIn</a
+            >
+            🙂
+          </p>
+        </section>
+      </div>
     </div>
     <!-- Footer -->
     <footer>
@@ -539,7 +547,6 @@
         </p>
       </div>
     </footer>
-
     <!-- JavaScript -->
     <script type="module" src="script.js"></script>
   </body>

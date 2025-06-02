@@ -50,51 +50,6 @@ body {
   overflow-x: hidden;
 
   background: linear-gradient(135deg, #1b1b1b, #0a0a0a);
-  display: grid;
-  grid-template-areas:
-    "header-and-controls"
-    "talking-head"
-    "dialog"
-    "sections"
-    "footer";
-  grid-template-rows: auto auto auto 3fr auto;
-  grid-template-columns: 1fr;
-  padding: 2rem;
-}
-
-/* Medium screens: Talking head + header in same row */
-@media (min-width: 768px) {
-  body {
-    grid-template-areas:
-      "talking-head header-and-controls"
-      "dialog dialog"
-      "sections sections"
-      "footer footer";
-
-    grid-template-columns: 2fr 300px;
-    grid-template-rows: auto auto 3fr auto;
-  }
-}
-
-/* Large Screens (Desktops & Monitors) */
-@media (min-width: 1024px) {
-  body {
-    grid-template-areas:
-      ". talking-head header-and-controls"
-      "dialog dialog dialog"
-      "sections sections sections"
-      "footer footer footer";
-    grid-template-columns: 200px 3fr 200px;
-  }
-}
-
-/* Extra large screens */
-@media (min-width: 1200px) {
-  body {
-    grid-template-columns: 200px 1fr 200px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
 }
 
 /* Subtle Noise/Texture Layer Using an SVG (minimal opacity so content remains clear) */
@@ -132,6 +87,44 @@ body::after {
   animation: moveScanlineFullscreen 8s linear infinite;
   z-index: -1;
   pointer-events: none;
+}
+
+.content-wrapper {
+  padding: 2rem;
+  display: grid;
+  grid-template-areas:
+    "header-and-controls"
+    "talking-head"
+    "dialog"
+    "sections";
+  grid-template-rows: auto auto auto 3fr;
+  grid-template-columns: 1fr;
+
+  /* Medium screens: Talking head + header in same row */
+  @media (min-width: 768px) {
+    grid-template-areas:
+      "talking-head header-and-controls"
+      "dialog dialog"
+      "sections sections";
+    grid-template-columns: 2fr 300px;
+    grid-template-rows: auto auto 3fr;
+  }
+
+  /* Large Screens (Desktops & Monitors) */
+  @media (min-width: 1024px) {
+    grid-template-areas:
+      ". talking-head header-and-controls"
+      "dialog dialog dialog"
+      "sections sections sections";
+    grid-template-columns: 200px 3fr 200px;
+  }
+
+  /* Extra large screens */
+  @media (min-width: 1200px) {
+    grid-template-columns: 200px 1fr 200px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
 
 /* Custom Cursor Styles */
@@ -307,13 +300,13 @@ header {
 }
 
 .dialog {
-  padding: 0.5rem;
-  max-width: 50rem;
   flex-grow: 1;
+  position: relative;
 }
 
 .dialog-options {
   border: 3px solid var(--primary-color);
+  margin: 0;
   border-radius: 1px;
   padding: 0.5rem;
   height: 10rem;
@@ -357,6 +350,26 @@ header {
       color: var(--primary-color);
     }
   }
+}
+
+/* Fixed gradient overlay positioned at bottom of .dialog */
+.dialog::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(transparent, rgba(26, 26, 26, 0.9));
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+/* Hide gradient when scrolled to bottom */
+.dialog.scrolled-to-bottom::after {
+  opacity: 0;
 }
 /* End Dialog Styles */
 
@@ -437,6 +450,45 @@ section:target {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color-bright); /* Slightly brighter shade */
+}
+
+.scroll-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  animation: bounce 2s infinite;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-indicator.show {
+  opacity: 1;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Hide when scrolled near bottom */
+.scroll-indicator.hidden {
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 /* End Scrollbar Styles */
 
@@ -882,19 +934,19 @@ body[data-theme="amber"] #toggle-wrapper {
 /* End Color Toggle Styles */
 
 /* Footer Styles */
-/* Footer Styles */
 footer {
-  grid-area: footer;
   background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
   border-top: 3px solid var(--primary-color);
   padding: 2rem 1rem 1rem;
   margin-top: auto;
   position: relative;
-  /* Break out of grid constraints */
-  grid-column: 1 / -1;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
+  width: 100%;
+  overflow-x: hidden;
+  @media (min-width: 1200px) {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
 }
 
 /* Terminal-style border effect */

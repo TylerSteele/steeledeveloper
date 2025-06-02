@@ -174,6 +174,67 @@ document.addEventListener("DOMContentLoaded", () => {
       quoteRoll.className = `quote-roll slide-${currentQuote}`;
     }, 7000);
   }
+
+  // === SCROLL INDICATOR ===
+  function checkScrollbarVisibility() {
+    const indicator = document.querySelector(".scroll-indicator");
+    if (!indicator) return;
+
+    // Check if content is scrollable
+    const hasVerticalScrollbar =
+      document.documentElement.scrollHeight > window.innerHeight;
+
+    // Check if scrollbar is actually visible (not hidden by browser/mobile)
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+    const scrollbarVisible = scrollbarWidth > 0;
+
+    // Check if we're near the bottom
+    const scrolled = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const nearBottom = scrolled + windowHeight >= documentHeight - 100;
+
+    // Show indicator if content is scrollable, scrollbar is NOT visible, and not near bottom
+    if (hasVerticalScrollbar && !scrollbarVisible && !nearBottom) {
+      indicator.classList.add("show");
+    } else {
+      indicator.classList.remove("show");
+    }
+  }
+
+  // Check on load and resize
+  window.addEventListener("load", checkScrollbarVisibility);
+  window.addEventListener("resize", checkScrollbarVisibility);
+  window.addEventListener("scroll", checkScrollbarVisibility);
+
+  // Also check when content changes (like when sections are shown)
+  document.querySelectorAll(".dialog-options a").forEach((link) => {
+    link.addEventListener("click", () => {
+      setTimeout(checkScrollbarVisibility, 100); // Small delay for content to show
+    });
+  });
+
+  // === DIALOG SCROLL EFFECT ===
+  const dialogOptions = document.querySelector(".dialog-options");
+  const dialog = document.querySelector(".dialog");
+
+  if (dialogOptions && dialog) {
+    function checkDialogScroll() {
+      const isScrolledToBottom =
+        dialogOptions.scrollTop + dialogOptions.clientHeight >=
+        dialogOptions.scrollHeight - 2;
+
+      if (isScrolledToBottom) {
+        dialog.classList.add("scrolled-to-bottom");
+      } else {
+        dialog.classList.remove("scrolled-to-bottom");
+      }
+    }
+
+    dialogOptions.addEventListener("scroll", checkDialogScroll);
+    checkDialogScroll();
+  }
 });
 
 // Global event listeners that don't need DOM to be ready
