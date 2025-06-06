@@ -14,6 +14,8 @@
   --gray: #bdbdbd;
   --white: #ffffff;
   --text-color: #141b01;
+  --scroll-bar-width: 14px;
+  --dialog-border-width: 3px;
 }
 
 body[data-theme="amber"] {
@@ -305,7 +307,7 @@ header {
 }
 
 .dialog-options {
-  border: 3px solid var(--primary-color);
+  border: var(--dialog-border-width) solid var(--primary-color);
   margin: 0;
   border-radius: 1px;
   padding: 0.5rem;
@@ -333,11 +335,11 @@ header {
       text-decoration: none;
       font-size: 1.2rem;
       font-weight: bold;
-      border: 3px solid transparent;
+      border: var(--dialog-border-width) solid transparent;
       box-sizing: border-box;
 
       &:hover {
-        border: 3px solid var(--primary-color-bright);
+        border: var(--dialog-border-width) solid var(--primary-color-bright);
         border-radius: 1px;
       }
 
@@ -357,9 +359,10 @@ header {
   content: "";
   position: absolute;
   /* Move inside the border */
-  bottom: 3px;
-  left: 3px;
-  right: 3px;
+  bottom: var(--dialog-border-width);
+  left: var(--dialog-border-width);
+  /* Move to within the scroll-bar */
+  right: calc(var(--scroll-bar-width) + 3px);
   height: 20px;
   background: linear-gradient(transparent, rgba(26, 26, 26, 0.9));
   pointer-events: none;
@@ -435,7 +438,7 @@ section:target {
 
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 14px;
+  width: var(--scroll-bar-width);
 }
 
 ::-webkit-scrollbar-track {
