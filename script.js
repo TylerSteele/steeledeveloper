@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100);
 
         currentTimeout = setTimeout(() => {
-          talkingGif.src = idleImage;
+          talkingGif.src = getRandomIdleGif();
           // Remove transition class after animation completes
           talkingHeadContainer.classList.remove("gif-transition");
           currentTimeout = null;
