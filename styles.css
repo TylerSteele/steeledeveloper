@@ -868,10 +868,9 @@ body[data-theme="amber"] #talking-head.gif-transition #talking-gif {
 /* End Talking Head Styles */
 
 /* Color Toggle Styles */
-
 .toggle-container {
   position: relative;
-  width: 120px;
+  width: 130px;
   height: 50px;
   background: #222;
   border: 4px solid var(--primary-color);
@@ -893,7 +892,7 @@ body[data-theme="amber"] #talking-head.gif-transition #talking-gif {
 
 .switch {
   position: absolute;
-  width: 50px;
+  width: 60px;
   left: 0;
   height: 40px;
   background: var(--primary-color);
@@ -904,7 +903,7 @@ body[data-theme="amber"] #talking-head.gif-transition #talking-gif {
 }
 
 .toggle-container.on .switch {
-  transform: translateX(60px);
+  transform: translateX(62px);
 }
 
 #toggle-wrapper {
